@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Chedy Korbi — Software & AI/ML Developer</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
@@ -131,10 +132,9 @@ section{padding:112px 52px;position:relative;}
 .ep{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--blue-lt);margin-bottom:7px;}
 .eco{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:4px;}
 .eco-row{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
-.eco-logo{width:34px;height:34px;border-radius:7px;display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;font-weight:600;border:1px solid var(--bdr);color:var(--cream);background:var(--s3);flex-shrink:0;}
-.eco-logo.sy{background:linear-gradient(135deg,rgba(26,86,219,.35),rgba(17,27,40,.9));border-color:rgba(26,86,219,.45);}
-.eco-logo.sg{background:linear-gradient(135deg,rgba(221,216,207,.22),rgba(17,27,40,.95));border-color:rgba(221,216,207,.28);}
-.eco-logo img{width:100%;height:100%;object-fit:contain;border-radius:7px;background:#fff;padding:4px;}
+.eco-logo{width:44px;height:44px;display:grid;place-items:center;flex-shrink:0;background:transparent;border:none;}
+.eco-logo.sy,.eco-logo.sg{background:transparent;border:none;}
+.eco-logo img{width:100%;height:100%;object-fit:contain;border-radius:0;background:transparent;padding:0;}
 .elc{font-family:var(--mono);font-size:.64rem;color:var(--cd);margin-bottom:10px;}
 .eb{display:inline-block;font-family:var(--mono);font-size:.6rem;color:var(--blue);border:1px solid rgba(26,86,219,.38);background:var(--blue-dim);padding:3px 10px;border-radius:2px;letter-spacing:.06em;}
 .e-tag{display:inline-block;font-family:var(--mono);font-size:.6rem;color:var(--cd);border:1px solid var(--bdr);padding:2px 8px;border-radius:2px;margin-top:8px;margin-left:6px;}
@@ -216,8 +216,8 @@ section{padding:112px 52px;position:relative;}
 .edu-deg{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--cream);margin-bottom:6px;line-height:1.25;letter-spacing:-.01em;}
 .edu-sch{font-family:var(--mono);font-size:.72rem;color:var(--cm);margin-bottom:14px;}
 .edu-sch-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.edu-logo{width:36px;height:36px;object-fit:contain;border-radius:8px;border:1px solid var(--bdr);background:#fff;padding:5px;flex-shrink:0;}
-.edu-logo.pi{background:#fff;filter:brightness(0) invert(1);}
+.edu-logo{width:44px;height:44px;object-fit:contain;border-radius:0;border:none;background:transparent;padding:0;flex-shrink:0;}
+.edu-logo.pi{background:transparent;filter:none;}
 .edu-det{font-size:.88rem;color:var(--cm);line-height:1.65;}
 .edu-gpa{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--blue);margin-top:14px;display:block;}
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
@@ -532,85 +532,7 @@ section{padding:112px 52px;position:relative;}
       <!-- GetHired AI — image right -->
       <div class="proj ir rv d3" data-tags="ai,fullstack" data-date="2024-08">
         <div class="pimg">
-          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#0c1520">
-            <defs>
-              <pattern id="g2" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(26,86,219,.07)" stroke-width="1"/></pattern>
-            </defs>
-            <rect width="600" height="400" fill="url(#g2)"/>
-            <!-- Left panel: Candidate -->
-            <rect x="20" y="30" width="180" height="340" rx="8" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="110" y="52" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="8" letter-spacing="1">CANDIDATE</text>
-            <!-- Avatar -->
-            <circle cx="110" cy="82" r="18" fill="#172031" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="110" y="87" text-anchor="middle" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="11">CK</text>
-            <!-- Score ring -->
-            <circle cx="110" cy="120" r="22" fill="none" stroke="rgba(26,86,219,.2)" stroke-width="3"/>
-            <circle cx="110" cy="120" r="22" fill="none" stroke="#1A56DB" stroke-width="3" stroke-dasharray="110 30" stroke-dashoffset="28" transform="rotate(-90 110 120)"/>
-            <text x="110" y="124" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="10" font-weight="bold">87</text>
-            <text x="110" y="135" text-anchor="middle" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">FIT SCORE</text>
-            <!-- CV items -->
-            <rect x="32" y="162" width="156" height="4" rx="2" fill="rgba(221,216,207,.15)"/>
-            <rect x="32" y="172" width="120" height="3" rx="2" fill="rgba(221,216,207,.09)"/>
-            <rect x="32" y="182" width="136" height="3" rx="2" fill="rgba(221,216,207,.09)"/>
-            <rect x="32" y="196" width="80" height="18" rx="4" fill="rgba(26,86,219,.25)" stroke="rgba(26,86,219,.4)" stroke-width="1"/>
-            <text x="72" y="208" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="7">AI Enhance CV</text>
-            <rect x="32" y="220" width="156" height="1" fill="rgba(221,216,207,.06)"/>
-            <!-- Skills recs -->
-            <text x="36" y="238" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7" letter-spacing=".5">SUGGESTED SKILLS</text>
-            <rect x="32" y="244" width="48" height="12" rx="3" fill="rgba(26,86,219,.15)" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="56" y="254" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="7">PyTorch</text>
-            <rect x="86" y="244" width="42" height="12" rx="3" fill="rgba(26,86,219,.15)" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="107" y="254" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="7">Kafka</text>
-            <rect x="134" y="244" width="54" height="12" rx="3" fill="rgba(26,86,219,.15)" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="161" y="254" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="7">Kubernetes</text>
-            <rect x="32" y="262" width="156" height="28" rx="4" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="36" y="275" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Interview prep</text>
-            <text x="36" y="285" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">3 mock sessions ready →</text>
-            <!-- Centre: AI Engine -->
-            <rect x="220" y="100" width="160" height="200" rx="8" fill="#0c1520" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="300" y="124" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="9" letter-spacing="1">GROQ LLM</text>
-            <text x="300" y="140" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="8">18 AI Modules</text>
-            <rect x="232" y="148" width="136" height="1" fill="rgba(26,86,219,.2)"/>
-            <text x="300" y="163" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">NLP CV Analysis</text>
-            <text x="300" y="176" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">ATS Simulation</text>
-            <text x="300" y="189" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Fit Scoring 0–100</text>
-            <text x="300" y="202" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Interview Planner</text>
-            <text x="300" y="215" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Smart Ranking</text>
-            <text x="300" y="228" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Auto Outreach</text>
-            <rect x="240" y="252" width="120" height="24" rx="4" fill="rgba(26,86,219,.2)" stroke="rgba(26,86,219,.4)" stroke-width="1"/>
-            <text x="300" y="268" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="8">Next.js · Spring Boot</text>
-            <!-- Arrows -->
-            <path d="M200 200 L220 200" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <path d="M380 200 L400 200" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <!-- Right panel: Recruiter -->
-            <rect x="400" y="30" width="180" height="340" rx="8" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="490" y="52" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="8" letter-spacing="1">RECRUITER</text>
-            <text x="406" y="75" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7" letter-spacing=".5">RANKED CANDIDATES</text>
-            <!-- Candidate rows -->
-            <rect x="408" y="82" width="164" height="28" rx="4" fill="rgba(26,86,219,.12)" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <circle cx="422" cy="96" r="8" fill="#172031" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="422" y="100" text-anchor="middle" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">CK</text>
-            <text x="436" y="93" fill="#ddd8cf" font-family="monospace" font-size="8">Chedy K.</text>
-            <text x="436" y="104" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">AI/ML · Flutter · Java</text>
-            <text x="548" y="99" text-anchor="end" fill="#5b8ef5" font-family="monospace" font-size="9" font-weight="bold">87</text>
-            <rect x="408" y="116" width="164" height="24" rx="4" fill="#172031"/>
-            <circle cx="422" cy="128" r="8" fill="#172031" stroke="rgba(221,216,207,.1)" stroke-width="1"/>
-            <text x="436" y="126" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">Sarah M.</text>
-            <text x="436" y="136" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">React · Node.js</text>
-            <text x="548" y="131" text-anchor="end" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="8">74</text>
-            <rect x="408" y="146" width="164" height="24" rx="4" fill="#172031"/>
-            <text x="436" y="157" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">Alex R.</text>
-            <text x="436" y="167" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">Python · ML</text>
-            <text x="548" y="161" text-anchor="end" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="8">68</text>
-            <rect x="408" y="180" width="164" height="1" fill="rgba(221,216,207,.06)"/>
-            <text x="412" y="196" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7" letter-spacing=".5">INTERVIEW PLAN</text>
-            <rect x="408" y="202" width="164" height="50" rx="4" fill="#172031" stroke="rgba(26,86,219,.15)" stroke-width="1"/>
-            <text x="412" y="216" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Q1: Describe your CNN pipeline</text>
-            <text x="412" y="228" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Q2: Explain MQTT vs WebSocket</text>
-            <text x="412" y="240" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Q3: System design: IoT backend</text>
-            <rect x="408" y="262" width="80" height="18" rx="4" fill="rgba(26,86,219,.3)" stroke="rgba(26,86,219,.5)" stroke-width="1"/>
-            <text x="448" y="274" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="7">Send Outreach</text>
-          </svg>
+          <img class="pcover" src="assets/get_hired.png" alt="GetHired AI cover"/>
         </div>
         <div class="pinfo">
           <div class="pnum">02 — Full-Stack AI</div>
