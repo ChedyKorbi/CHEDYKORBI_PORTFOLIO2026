@@ -220,6 +220,18 @@ section{padding:112px 52px;position:relative;}
 .cert-nm{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--cream);margin-bottom:6px;letter-spacing:-.01em;}
 .cert-dt{font-size:.82rem;color:var(--cm);}
 
+/* LOOKING FOR */
+#looking-for{background:var(--s1);}
+.lf-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2px;}
+.lf-card{background:var(--s2);border:1px solid var(--bdr);padding:34px 32px;}
+.lf-title{font-family:var(--serif);font-size:1.35rem;color:var(--cream);margin-bottom:12px;letter-spacing:-.01em;}
+.lf-list{list-style:none;display:grid;gap:10px;}
+.lf-list li{font-size:.92rem;color:var(--cm);padding-left:18px;position:relative;line-height:1.65;}
+.lf-list li::before{content:'>';position:absolute;left:0;color:var(--blue);font-family:var(--mono);}
+.ss-wrap{display:flex;flex-wrap:wrap;gap:8px;}
+.ss-pill{font-family:var(--mono);font-size:.64rem;color:var(--cm);border:1px solid var(--bdr);background:var(--s3);padding:6px 12px;border-radius:3px;letter-spacing:.05em;text-transform:uppercase;transition:border-color .2s,color .2s,background .2s;}
+.ss-pill:hover{border-color:rgba(26,86,219,.45);color:var(--cream);background:var(--blue-dim);}
+
 /* CONTACT */
 #contact{background:var(--s1);text-align:center;}
 .cw{max-width:700px;margin:0 auto;}
@@ -235,13 +247,23 @@ section{padding:112px 52px;position:relative;}
 /* NO RESULTS */
 .no-results{font-family:var(--mono);font-size:.75rem;color:var(--cd);padding:48px;text-align:center;letter-spacing:.08em;display:none;}
 
+/* MOBILE STICKY CTA */
+.m-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(7,14,24,.96);backdrop-filter:blur(12px);border-top:1px solid var(--bdr);grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.m-cta a{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);text-decoration:none;text-align:center;padding:10px 8px;border:1px solid var(--bdr);border-radius:3px;background:var(--s2);}
+.m-cta a:hover{border-color:rgba(26,86,219,.45);background:var(--blue-dim);}
+
 /* RESPONSIVE */
 @media(max-width:960px){
-  nav{padding:16px 24px;}nav.stuck{padding:12px 24px;}
-  .nav-links,.nav-cta{display:none;}
-  #hero,section{padding-left:24px;padding-right:24px;}
+  nav{padding:14px 18px;flex-wrap:wrap;row-gap:10px;}
+  nav.stuck{padding:10px 18px;}
+  .nav-links{display:flex;order:3;width:100%;overflow-x:auto;gap:14px;padding-bottom:4px;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links li{flex:0 0 auto;}
+  .nav-cta{display:inline-flex;order:2;margin-left:auto;padding:8px 14px;font-size:.62rem;}
+  #hero,section{padding-left:18px;padding-right:18px;}
   .divider{margin:0 24px;}
   .ag,.edug,.skg{grid-template-columns:1fr;}
+  .lf-grid{grid-template-columns:1fr;}
   .exp-item{grid-template-columns:1fr;gap:16px;}
   .flg,.certs{grid-template-columns:1fr;}
   .proj{grid-template-columns:1fr!important;}
@@ -251,6 +273,32 @@ section{padding:112px 52px;position:relative;}
   .h-top-row{flex-direction:column-reverse;align-items:flex-start;gap:20px;}
   .h-photo-wrap{width:165px;height:200px;}
   .sort-bar{margin-left:0;}
+}
+@media(max-width:620px){
+  body{padding-bottom:82px;}
+  nav{padding:10px 12px;}
+  nav.stuck{padding:8px 12px;}
+  .nav-cta{width:100%;justify-content:center;margin-left:0;}
+  .nav-links{gap:10px;}
+  #hero{padding-top:108px;min-height:auto;}
+  #hero,section{padding-left:12px;padding-right:12px;}
+  section{padding-top:84px;padding-bottom:84px;}
+  .divider{margin:0 12px;}
+  .h-name{font-size:clamp(2.55rem,13vw,3.7rem);line-height:.92;}
+  .h-name .sw{font-size:clamp(2.2rem,11vw,3.2rem);}
+  .h-sub{font-size:.95rem;line-height:1.5;min-height:3em;}
+  .h-tags{margin-bottom:30px;}
+  .h-cv,.h-cta{width:100%;}
+  .btn-p,.btn-s{padding:12px 18px;text-align:center;flex:1 1 calc(50% - 7px);}
+  .h-scroll{display:none;}
+  .exp-item,.fl,.pinfo,.skgr,.edu,.cert{padding:22px 18px;}
+  .lf-card{padding:22px 18px;}
+  .lf-list li{font-size:.86rem;line-height:1.65;}
+  .exp-actions,.p-actions{flex-direction:column;}
+  .case-link{width:100%;justify-content:center;}
+  .ebuls li,.pdesc,.fd,.edu-det,.csub{font-size:.86rem;line-height:1.65;}
+  .cw{max-width:100%;}
+  .m-cta{display:grid;}
 }
 </style>
 </head>
@@ -279,7 +327,7 @@ section{padding:112px 52px;position:relative;}
   <div class="h-layout">
     <div class="h-top-row">
       <div class="h-left">
-        <div class="h-ey">Available · Summer 2026 · Tunis &amp; Remote</div>
+        <div class="h-ey">Available · Summer 2026 · Global Teams · Tunis &amp; Remote</div>
         <h1 class="h-name">Chedy<span class="sw">Korbi</span></h1>
         <p class="h-sub"><span id="typed"></span><span class="caret"></span></p>
         <div class="h-cv">
@@ -312,13 +360,12 @@ section{padding:112px 52px;position:relative;}
   <div class="inner">
     <div class="s-lbl rv">About</div>
     <h2 class="s-head rv d1">Engineer by Training, Builder by Instinct</h2>
-    <p class="s-sub rv d2">I combine embedded systems discipline with AI product thinking to turn complex technical ideas into reliable digital experiences that people can actually use.</p>
     <div class="ag">
       <div class="ac rv d1">
         <p>Engineering student in <strong>Big Data & AI</strong> at Polytech International, holding a <span class="hl">Licence in Embedded Systems & Mobile Development</span>. Based in La Marsa, Tunis.</p>
-        <p>Several years of hands-on experience in <strong>software development — mobile, web, and IoT</strong> — built through multiple internships, freelance projects, and team collaborations delivering real products under tight deadlines.</p>
-        <p>Actively building my <strong>AI/ML and data profile</strong> through ongoing projects and certifications — EfficientNet CNN deployed in production at Sagemcom, multi-modal NLP pipeline scoring <span class="hl">94% at Samsung Innovation Campus (top 6%)</span>. Currently mid-way through Andrew Ng's ML Specialization.</p>
-        <p>Curious, autonomous, and always eager to learn and adapt. Open to a <strong>summer 2026 internship</strong> in AI/ML, data, or software development.</p>
+        <p>Hands-on experience across <strong>software engineering, mobile, web, IoT, and AI integration</strong>, delivered through internships and freelance projects with real users, delivery pressure, and quality expectations.</p>
+        <p>I focus on <strong>end-to-end ownership</strong>: translating requirements into architecture, shipping reliably, and documenting clearly, with a constant focus on quality and maintainability.</p>
+        <p>Known for reliability, attention to detail, and professional collaboration. Open to a <strong>summer 2026 internship</strong> in AI/ML, data, or software engineering.</p>
       </div>
       <div class="rv d2">
         <div class="stats">
@@ -955,13 +1002,48 @@ section{padding:112px 52px;position:relative;}
 </section>
 <div class="divider"></div>
 
+<!-- LOOKING FOR -->
+<section id="looking-for">
+  <div class="inner">
+    <div class="s-lbl rv">Open To</div>
+    <h2 class="s-head rv d1">What I'm Looking For & What You Can Expect</h2>
+    <p class="s-sub rv d2">I am targeting high-impact teams where engineering quality, speed, and accountability are valued. In return, I bring execution focus, ownership, and professional communication.</p>
+    <div class="lf-grid">
+      <article class="lf-card rv d2">
+        <h3 class="lf-title">What I'm Looking For</h3>
+        <ul class="lf-list">
+          <li>Summer 2026 internship in AI/ML, data engineering, or software engineering.</li>
+          <li>Product-oriented roles with real ownership, delivery timelines, and measurable outcomes.</li>
+          <li>Teams with high standards in engineering, mentorship, and cross-functional collaboration.</li>
+          <li>Open to Tunis-based or remote work with international, high-performance teams.</li>
+        </ul>
+      </article>
+      <article class="lf-card rv d3">
+        <h3 class="lf-title">Professional Strengths</h3>
+        <div class="ss-wrap">
+          <span class="ss-pill">Ownership</span>
+          <span class="ss-pill">Executive Communication</span>
+          <span class="ss-pill">Team Collaboration</span>
+          <span class="ss-pill">Adaptability</span>
+          <span class="ss-pill">Rapid Learning</span>
+          <span class="ss-pill">Structured Problem Solving</span>
+          <span class="ss-pill">Attention To Detail</span>
+          <span class="ss-pill">Stakeholder Focus</span>
+          <span class="ss-pill">Professional Reliability</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="inner cw">
     <div class="s-lbl rv" style="justify-content:center">Contact</div>
-    <p class="s-sub center rv d1">If you are looking for someone who can bridge AI research and product execution, let's build something ambitious and useful together.</p>
+    <p class="s-sub center rv d1">If you need an intern who combines technical depth with delivery discipline, I would be glad to contribute to your team.</p>
     <h2 class="cbig rv d1">Let's<br><em>Work</em><br>Together</h2>
-    <p class="csub rv d2">Open to summer 2026 internships in AI/ML, data engineering, or software development — in Tunis or remote. Also available for serious freelance product builds.</p>
+    <p class="csub rv d2">Open to summer 2026 internships in AI/ML, data engineering, or software engineering. I value clear goals, high standards, and teams that care about execution quality.</p>
     <div class="cls rv d3">
       <a href="mailto:chedykorbi2021@gmail.com" class="cl"><span>✉</span> chedykorbi2021@gmail.com</a>
       <a href="https://linkedin.com/in/chedy-korbi-2463a9250/" target="_blank" class="cl"><span>in</span> LinkedIn</a>
@@ -975,6 +1057,12 @@ section{padding:112px 52px;position:relative;}
     <div class="ftl rv d4">Chedy Korbi · La Marsa, Tunis · Arabic · French · English</div>
   </div>
 </section>
+
+<div class="m-cta">
+  <a href="mailto:chedykorbi2021@gmail.com">Email</a>
+  <a href="https://linkedin.com/in/chedy-korbi-2463a9250/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="CV_ChedyKorbi_EN.docx" download>Download CV</a>
+</div>
 
 <script>
 // CURSOR
@@ -992,7 +1080,7 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>50));
 
 // TYPEWRITER
-const phrases=['Software & AI/ML Developer','Building intelligent systems','IoT · Mobile · Web · AI','Open to Summer 2026 Internship'];
+const phrases=['AI/ML & Software Engineer','Production-minded builder','Reliable execution · clear communication','Open to Summer 2026 Internship'];
 let pi=0,ci=0,del=false;
 const tel=document.getElementById('typed');
 function type(){const p=phrases[pi];

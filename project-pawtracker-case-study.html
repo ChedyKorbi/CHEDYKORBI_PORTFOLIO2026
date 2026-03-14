@@ -85,20 +85,32 @@ h1{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.3rem);line-height:.95;l
 footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
 
 @media(max-width:960px){
+  nav{padding:12px 14px;flex-direction:column;align-items:stretch;gap:10px}
+  .nav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .nav-links a{text-align:center;padding:7px 8px;font-size:.56rem;letter-spacing:.08em}
+  .wrap{padding:0 16px}
+  .hero{padding:52px 0 28px}
+  .sec{padding:34px 0}
   .hero-metrics,.tech-grid,.flow,.impact{grid-template-columns:1fr 1fr}
   .grid2{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
+  nav{padding:10px 12px}
+  .nav-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wrap{padding:0 12px}
+  h1{font-size:clamp(1.85rem,10vw,2.8rem);line-height:1}
+  .hero-sub{font-size:.92rem}
   .hero-metrics,.tech-grid,.flow,.impact,.gallery{grid-template-columns:1fr}
+  .metric,.card,.tblock,.step,.impact .i{padding:16px}
 }
 </style>
 </head>
 <body>
 <nav>
-  <a href="index_2.html" class="logo">Chedy<span>.</span></a>
+  <a href="index.html" class="logo">Chedy<span>.</span></a>
   <div class="nav-links">
-    <a href="index_2.html">Back Home</a>
+    <a href="index.html">Back Home</a>
     <a href="#context">Context</a>
     <a href="#solution">Solution</a>
     <a href="#tech">Tech</a>
@@ -207,6 +219,7 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
 <section class="sec wrap" id="gallery">
   <div class="head">Gallery</div>
   <h2 class="h2">Interface and system snapshots</h2>
+  <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Images &amp; screenshots are not available yet. Coming soon.</p>
   <div class="gallery">
     <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="7" y="8" width="86" height="10" fill="#172031"/><rect x="7" y="22" width="38" height="42" fill="#172031"/><rect x="49" y="22" width="44" height="20" fill="#172031"/><rect x="49" y="46" width="44" height="18" fill="#172031"/></svg><div class="t">Owner app dashboard</div></article>
     <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="10" y="10" width="80" height="55" fill="#172031"/><polyline points="14,55 28,40 42,44 56,31 72,34 86,24" fill="none" stroke="#1A56DB" stroke-width="2"/></svg><div class="t">Telemetry trend analysis</div></article>

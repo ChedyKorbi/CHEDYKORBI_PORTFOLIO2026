@@ -82,6 +82,12 @@ h1{font-family:var(--serif);font-size:clamp(2.3rem,5.8vw,5rem);line-height:.95;l
 footer{padding:40px 0 60px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cd)}
 
 @media(max-width:980px){
+  nav{padding:12px 14px;align-items:flex-start;gap:10px}
+  .nav-set{gap:6px}
+  .nav-set a{padding:7px 9px;font-size:.56rem;letter-spacing:.08em}
+  .wrap{padding:0 16px}
+  .hero{padding:52px 0 30px}
+  .sec{padding:34px 0}
   .hero-grid,.cols{grid-template-columns:1fr}
   .arch{grid-template-columns:1fr 1fr}
   .timeline{grid-template-columns:1fr 1fr 1fr}
@@ -89,15 +95,22 @@ footer{padding:40px 0 60px;font-family:var(--mono);font-size:.62rem;letter-spaci
   .gallery{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
+  nav{padding:10px 12px;flex-direction:column;align-items:stretch}
+  .nav-set{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .nav-set a{text-align:center}
+  .wrap{padding:0 12px}
+  h1{font-size:clamp(1.85rem,10vw,2.8rem);line-height:1}
+  .hero p{font-size:.92rem}
   .arch,.timeline,.kpi,.gallery{grid-template-columns:1fr}
+  .box,.card,.block,.t,.k{padding:16px}
 }
 </style>
 </head>
 <body>
 <nav>
-  <a class="brand" href="index_2.html">Chedy<i>.</i></a>
+  <a class="brand" href="index.html">Chedy<i>.</i></a>
   <div class="nav-set">
-    <a href="index_2.html">Back Home</a>
+    <a href="index.html">Back Home</a>
     <a href="#problem">Problem</a>
     <a href="#approach">Approach</a>
     <a href="#technical">Technical</a>
@@ -204,6 +217,7 @@ footer{padding:40px 0 60px;font-family:var(--mono);font-size:.62rem;letter-spaci
 <section class="sec wrap" id="gallery">
   <div class="tag">Gallery</div>
   <h2 class="h2">Implementation snapshots</h2>
+  <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Images &amp; screenshots are not available yet. Coming soon.</p>
   <div class="gallery">
     <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="8" y="8" width="84" height="16" fill="#172031"/><rect x="8" y="28" width="40" height="64" fill="#172031"/><rect x="52" y="28" width="40" height="30" fill="#172031"/><rect x="52" y="62" width="40" height="30" fill="#172031"/></svg><span>Requirements board</span></article>
     <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="12" y="16" width="76" height="68" fill="#172031"/><polyline points="16,72 32,55 48,60 64,46 80,40" fill="none" stroke="#1A56DB" stroke-width="2"/></svg><span>Telemetry validation</span></article>
