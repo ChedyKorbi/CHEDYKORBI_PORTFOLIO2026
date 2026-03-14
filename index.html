@@ -134,6 +134,7 @@ section{padding:112px 52px;position:relative;}
 .eco-logo{width:34px;height:34px;border-radius:7px;display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;font-weight:600;border:1px solid var(--bdr);color:var(--cream);background:var(--s3);flex-shrink:0;}
 .eco-logo.sy{background:linear-gradient(135deg,rgba(26,86,219,.35),rgba(17,27,40,.9));border-color:rgba(26,86,219,.45);}
 .eco-logo.sg{background:linear-gradient(135deg,rgba(221,216,207,.22),rgba(17,27,40,.95));border-color:rgba(221,216,207,.28);}
+.eco-logo img{width:100%;height:100%;object-fit:contain;border-radius:7px;background:#fff;padding:4px;}
 .elc{font-family:var(--mono);font-size:.64rem;color:var(--cd);margin-bottom:10px;}
 .eb{display:inline-block;font-family:var(--mono);font-size:.6rem;color:var(--blue);border:1px solid rgba(26,86,219,.38);background:var(--blue-dim);padding:3px 10px;border-radius:2px;letter-spacing:.06em;}
 .e-tag{display:inline-block;font-family:var(--mono);font-size:.6rem;color:var(--cd);border:1px solid var(--bdr);padding:2px 8px;border-radius:2px;margin-top:8px;margin-left:6px;}
@@ -160,6 +161,7 @@ section{padding:112px 52px;position:relative;}
 .fl:hover::after{transform:scaleX(1);}
 .fl:hover{background:var(--s3);border-color:var(--bdr-h);transform:translateY(-3px);}
 .fl.hidden{display:none;}
+.fl-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--bdr);border-radius:6px;margin-bottom:16px;background:var(--s3);}
 .fc{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
 .ft{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--cream);margin-bottom:10px;line-height:1.2;letter-spacing:-.01em;}
 .fd{font-size:.86rem;color:var(--cm);line-height:1.7;margin-bottom:18px;}
@@ -178,6 +180,8 @@ section{padding:112px 52px;position:relative;}
 .pimg{position:relative;overflow:hidden;min-height:380px;background:var(--s3);}
 .pimg svg{width:100%;height:100%;display:block;}
 .proj:hover .pimg svg{transform:scale(1.03);transition:transform .6s cubic-bezier(.23,1,.32,1);}
+.pimg .pcover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1);}
+.proj:hover .pimg .pcover{transform:scale(1.03);}
 
 .pinfo{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;}
 .pnum{font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;color:var(--blue);margin-bottom:18px;}
@@ -211,6 +215,9 @@ section{padding:112px 52px;position:relative;}
 .edu-per{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--blue-lt);margin-bottom:12px;}
 .edu-deg{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--cream);margin-bottom:6px;line-height:1.25;letter-spacing:-.01em;}
 .edu-sch{font-family:var(--mono);font-size:.72rem;color:var(--cm);margin-bottom:14px;}
+.edu-sch-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.edu-logo{width:36px;height:36px;object-fit:contain;border-radius:8px;border:1px solid var(--bdr);background:#fff;padding:5px;flex-shrink:0;}
+.edu-logo.pi{background:#fff;filter:brightness(0) invert(1);}
 .edu-det{font-size:.88rem;color:var(--cm);line-height:1.65;}
 .edu-gpa{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--blue);margin-top:14px;display:block;}
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
@@ -407,7 +414,7 @@ section{padding:112px 52px;position:relative;}
       <div class="exp-item rv d2" data-tags="internship,ai,iot,web" data-date="2025-01">
         <div>
           <div class="ep">Jan 2025 – Jun 2025</div>
-          <div class="eco-row"><span class="eco-logo sy">SY</span><div class="eco">Symatique Software</div></div>
+          <div class="eco-row"><span class="eco-logo sy"><img src="assets/logo_symatique.png" alt="Symatique logo"/></span><div class="eco">Symatique Software</div></div>
           <div class="elc">Tunis, Tunisia</div>
           <span class="eb">Final Year Intern</span>
           <span class="e-tag">IoT</span><span class="e-tag">AI</span>
@@ -430,7 +437,7 @@ section{padding:112px 52px;position:relative;}
       <div class="exp-item rv d3" data-tags="internship,ai" data-date="2024-07">
         <div>
           <div class="ep">Jul 2024 – Aug 2024</div>
-          <div class="eco-row"><span class="eco-logo sg">SG</span><div class="eco">Sagemcom S&amp;T R&amp;D</div></div>
+          <div class="eco-row"><span class="eco-logo sg"><img src="assets/LOGO_SAGEMCOM.png" alt="Sagemcom logo"/></span><div class="eco">Sagemcom S&amp;T R&amp;D</div></div>
           <div class="elc">Tunis, Tunisia</div>
           <span class="eb">Summer Intern · AI Mobile</span>
           <span class="e-tag">AI</span>
@@ -455,18 +462,21 @@ section{padding:112px 52px;position:relative;}
     <div class="fl-section-label rv d1">Freelance · 2023 – Present</div>
     <div class="flg" id="fl-list">
       <div class="fl rv d2" data-tags="freelance,web,ai" data-date="2024-06">
+        <img class="fl-cover" src="assets/atasmiyacover.png" alt="ATASMIYA cover"/>
         <div class="fc">ATASMIYA</div>
         <div class="ft">Halal Traceability Platform</div>
         <div class="fd">End-to-end halal platform for suppliers, restaurant managers, and consumers across France & Europe. Admin back-office for batch management, certificate allocation, and real-time logistics supervision. Flutter mobile app: managers scan batches for monthly halal certification; consumers verify via QR code. Offline-first, GPS anti-fraud validation, AES-256 secured.</div>
         <div class="fcs"><span class="fch">Flutter</span><span class="fch">Next.js</span><span class="fch">Spring Boot</span><span class="fch">MySQL</span><span class="fch">AES-256</span><span class="fch">JWT</span><span class="fch">Firebase</span></div>
       </div>
       <div class="fl rv d3" data-tags="freelance,web,ai" data-date="2023-09">
+        <img class="fl-cover" src="assets/scio_cover.png" alt="SCIO cover"/>
         <div class="fc">SCIO</div>
         <div class="ft">Nutrition Evaluation App</div>
         <div class="fd">Cross-platform mobile app (iOS & Android) for a health-tech startup: barcode scanning and an ML scoring engine generating explainable colour-coded risk indicators, validated by a database of certified nutritionists — making science-based nutritional assessment accessible to everyday consumers.</div>
         <div class="fcs"><span class="fch">Flutter</span><span class="fch">Spring Boot</span><span class="fch">MySQL</span><span class="fch">ML Scoring</span><span class="fch">REST APIs</span></div>
       </div>
       <div class="fl rv d4" data-tags="freelance,web" data-date="2023-06">
+        <img class="fl-cover" src="assets/maison_knuz_banner.png" alt="CIM SALABYM cover"/>
         <div class="fc">CIM SALABYM</div>
         <div class="ft">E-commerce & Back-Office</div>
         <div class="fd">Full digital solution for a ceramic decoration brand: customisable Next.js storefront (products, categories, collections, delivery, editorial content) with Stripe payments and OAuth. Complete admin back-office covering inventory, orders, CMS, CRM, and full site configuration — delivered end-to-end.</div>
@@ -503,61 +513,7 @@ section{padding:112px 52px;position:relative;}
       <!-- Samsung Capstone -->
       <div class="proj rv d2" data-tags="ai" data-date="2024-10">
         <div class="pimg">
-          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#0c1520">
-            <!-- Grid bg -->
-            <defs>
-              <pattern id="g1" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(26,86,219,.08)" stroke-width="1"/></pattern>
-            </defs>
-            <rect width="600" height="400" fill="url(#g1)"/>
-            <!-- Product card -->
-            <rect x="40" y="40" width="160" height="200" rx="8" fill="#111b28" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <rect x="52" y="52" width="136" height="100" rx="4" fill="#172031"/>
-            <!-- Product image placeholder lines -->
-            <line x1="70" y1="80" x2="120" y2="120" stroke="rgba(26,86,219,.4)" stroke-width="1.5"/>
-            <circle cx="90" cy="75" r="12" fill="none" stroke="rgba(26,86,219,.5)" stroke-width="1.5"/>
-            <rect x="52" y="162" width="80" height="6" rx="3" fill="rgba(221,216,207,.2)"/>
-            <rect x="52" y="174" width="110" height="4" rx="2" fill="rgba(221,216,207,.1)"/>
-            <rect x="52" y="184" width="90" height="4" rx="2" fill="rgba(221,216,207,.1)"/>
-            <rect x="52" y="200" width="50" height="16" rx="4" fill="rgba(26,86,219,.5)"/>
-            <!-- Arrow: image to pipeline -->
-            <path d="M200 140 L240 140" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr1)"/>
-            <defs><marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" fill="none" stroke="#1A56DB" stroke-width="1.5"/></marker></defs>
-            <!-- Pipeline box -->
-            <rect x="240" y="60" width="200" height="260" rx="8" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="340" y="85" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="9" letter-spacing="1">AI PIPELINE</text>
-            <!-- EfficientNet -->
-            <rect x="258" y="96" width="164" height="34" rx="4" fill="#172031" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="340" y="117" text-anchor="middle" fill="#ddd8cf" font-family="monospace" font-size="9">EfficientNetB3</text>
-            <!-- NLP stack -->
-            <rect x="258" y="140" width="50" height="26" rx="3" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="283" y="157" text-anchor="middle" fill="rgba(221,216,207,.7)" font-family="monospace" font-size="8">BiLSTM</text>
-            <rect x="316" y="140" width="44" height="26" rx="3" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="338" y="157" text-anchor="middle" fill="rgba(221,216,207,.7)" font-family="monospace" font-size="8">BERT</text>
-            <rect x="368" y="140" width="54" height="26" rx="3" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="395" y="157" text-anchor="middle" fill="rgba(221,216,207,.7)" font-family="monospace" font-size="8">SmolLM2</text>
-            <!-- Summarisation -->
-            <rect x="258" y="178" width="164" height="28" rx="4" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="340" y="196" text-anchor="middle" fill="rgba(221,216,207,.7)" font-family="monospace" font-size="9">BART / T5 / Qwen2.5</text>
-            <!-- Score badge -->
-            <rect x="272" y="220" width="136" height="36" rx="6" fill="rgba(26,86,219,.2)" stroke="rgba(26,86,219,.5)" stroke-width="1"/>
-            <text x="340" y="236" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="9" font-weight="bold">94% · TOP 6%</text>
-            <text x="340" y="250" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="8">Samsung Innovation Campus</text>
-            <!-- Arrow to report -->
-            <path d="M440 175 L480 175" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr1)"/>
-            <!-- Report box -->
-            <rect x="480" y="120" width="100" height="130" rx="6" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="530" y="140" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="8" letter-spacing=".5">REPORT</text>
-            <rect x="492" y="148" width="76" height="4" rx="2" fill="rgba(221,216,207,.2)"/>
-            <rect x="492" y="158" width="60" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="492" y="166" width="68" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="492" y="174" width="52" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="492" y="188" width="76" height="3" rx="2" fill="rgba(26,86,219,.3)"/>
-            <rect x="492" y="196" width="64" height="3" rx="2" fill="rgba(26,86,219,.2)"/>
-            <rect x="492" y="210" width="40" height="20" rx="4" fill="rgba(26,86,219,.4)"/>
-            <text x="512" y="224" text-anchor="middle" fill="#ddd8cf" font-family="monospace" font-size="8">View</text>
-            <!-- Streamlit label -->
-            <text x="300" y="300" text-anchor="middle" fill="rgba(91,142,245,.4)" font-family="monospace" font-size="8">Streamlit UI · Flask API</text>
-          </svg>
+          <img class="pcover" src="assets/cover.png" alt="Intelligent Report Generator cover"/>
         </div>
         <div class="pinfo">
           <div class="pnum">01 — AI Capstone</div>
@@ -673,74 +629,7 @@ section{padding:112px 52px;position:relative;}
       <!-- PawTracker -->
       <div class="proj rv d2" data-tags="ai,mobile,fullstack" data-date="2025-01">
         <div class="pimg">
-          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#0c1520">
-            <defs><pattern id="g3" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(26,86,219,.07)" stroke-width="1"/></pattern></defs>
-            <rect width="600" height="400" fill="url(#g3)"/>
-            <!-- Phone mockup -->
-            <rect x="200" y="30" width="200" height="340" rx="20" fill="#111b28" stroke="rgba(26,86,219,.3)" stroke-width="1.5"/>
-            <rect x="215" y="50" width="170" height="300" rx="8" fill="#0c1520"/>
-            <!-- Status bar -->
-            <rect x="215" y="50" width="170" height="20" rx="8" fill="#172031"/>
-            <circle cx="295" cy="60" r="3" fill="rgba(26,86,219,.6)"/>
-            <!-- Header -->
-            <text x="300" y="85" text-anchor="middle" fill="#ddd8cf" font-family="monospace" font-size="9" font-weight="bold">PawTracker</text>
-            <!-- Pet card -->
-            <rect x="225" y="94" width="150" height="70" rx="6" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <circle cx="250" cy="124" r="18" fill="#1d2a3e" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <text x="250" y="129" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="11">🐕</text>
-            <text x="280" y="112" fill="#ddd8cf" font-family="monospace" font-size="9">Rocky · Lab · 3yo</text>
-            <text x="280" y="124" fill="rgba(26,86,219,.8)" font-family="monospace" font-size="8">● Active</text>
-            <!-- Health metric bars -->
-            <text x="225" y="182" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7" letter-spacing=".5">HEALTH METRICS</text>
-            <text x="225" y="196" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">Heart Rate</text>
-            <rect x="280" y="188" width="90" height="6" rx="3" fill="#172031"/>
-            <rect x="280" y="188" width="72" height="6" rx="3" fill="rgba(26,86,219,.7)"/>
-            <text x="375" y="196" text-anchor="end" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">80%</text>
-            <text x="225" y="210" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">Activity</text>
-            <rect x="280" y="202" width="90" height="6" rx="3" fill="#172031"/>
-            <rect x="280" y="202" width="58" height="6" rx="3" fill="rgba(26,86,219,.5)"/>
-            <text x="375" y="210" text-anchor="end" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">64%</text>
-            <text x="225" y="224" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">ML Score</text>
-            <rect x="280" y="216" width="90" height="6" rx="3" fill="#172031"/>
-            <rect x="280" y="216" width="85" height="6" rx="3" fill="rgba(26,200,100,.4)"/>
-            <text x="375" y="224" text-anchor="end" fill="rgba(26,200,100,.8)" font-family="monospace" font-size="7">Optimal</text>
-            <!-- Map area -->
-            <rect x="225" y="236" width="150" height="60" rx="6" fill="#172031"/>
-            <text x="300" y="260" text-anchor="middle" fill="rgba(26,86,219,.5)" font-family="monospace" font-size="7">GPS TRACKING</text>
-            <circle cx="300" cy="276" r="6" fill="none" stroke="rgba(26,86,219,.6)" stroke-width="1"/>
-            <circle cx="300" cy="276" r="2" fill="#1A56DB"/>
-            <circle cx="300" cy="276" r="10" fill="none" stroke="rgba(26,86,219,.2)" stroke-width="1" stroke-dasharray="3 2"/>
-            <!-- ESP32 side -->
-            <rect x="40" y="80" width="130" height="200" rx="8" fill="#111b28" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="105" y="100" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="8" letter-spacing="1">ESP32 SENSOR</text>
-            <rect x="60" y="110" width="90" height="50" rx="4" fill="#172031" stroke="rgba(26,86,219,.15)" stroke-width="1"/>
-            <!-- Sensor lines -->
-            <line x1="70" y1="125" x2="110" y2="120" stroke="rgba(26,86,219,.4)" stroke-width="1"/>
-            <line x1="70" y1="135" x2="110" y2="140" stroke="rgba(26,200,100,.3)" stroke-width="1"/>
-            <line x1="70" y1="145" x2="90" y2="148" stroke="rgba(255,180,0,.3)" stroke-width="1"/>
-            <text x="105" y="175" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">Vitals · GPS</text>
-            <text x="105" y="186" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">Activity · Temp</text>
-            <rect x="60" y="196" width="90" height="24" rx="4" fill="rgba(26,86,219,.1)" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="105" y="207" text-anchor="middle" fill="rgba(91,142,245,.6)" font-family="monospace" font-size="7">MQTT stream</text>
-            <text x="105" y="217" text-anchor="middle" fill="rgba(91,142,245,.4)" font-family="monospace" font-size="7">50+ concurrent</text>
-            <!-- Arrow -->
-            <path d="M170 180 L200 180" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <!-- ML box -->
-            <rect x="40" y="295" width="130" height="50" rx="6" fill="#111b28" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="105" y="315" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="8">Regression + Classification</text>
-            <text x="105" y="328" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">Breed · Age calibrated</text>
-            <text x="105" y="338" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="7">Deviation detection</text>
-            <!-- VetLink right side -->
-            <rect x="420" y="80" width="150" height="200" rx="8" fill="#111b28" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="495" y="100" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="8" letter-spacing=".5">VETLINK WEB</text>
-            <rect x="432" y="110" width="126" height="16" rx="3" fill="#172031"/>
-            <text x="436" y="122" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Patient: Rocky</text>
-            <rect x="432" y="132" width="126" height="50" rx="3" fill="#172031"/>
-            <text x="436" y="146" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Last visit: 2025-05-12</text>
-            <text x="436" y="158" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Next appt: 2025-06-01</text>
-            <text x="436" y="170" fill="rgba(26,200,100,.5)" font-family="monospace" font-size="7">● All metrics normal</text>
-            <path d="M400 180 L420 180" stroke="#1A56DB" stroke-width="1.5" stroke-dasharray="4 3"/>
-          </svg>
+          <img class="pcover" src="assets/pawtrackercover.png" alt="PawTracker cover"/>
         </div>
         <div class="pinfo">
           <div class="pnum">03 — IoT + AI</div>
@@ -759,89 +648,7 @@ section{padding:112px 52px;position:relative;}
       <!-- ATASMIYA -->
       <div class="proj ir rv d3" data-tags="mobile,fullstack,web" data-date="2024-06">
         <div class="pimg">
-          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#0c1520">
-            <defs><pattern id="g4" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(26,86,219,.07)" stroke-width="1"/></pattern></defs>
-            <rect width="600" height="400" fill="url(#g4)"/>
-            <!-- Admin dashboard -->
-            <rect x="20" y="20" width="280" height="220" rx="8" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <rect x="20" y="20" width="280" height="28" rx="8" fill="#172031"/>
-            <rect x="20" y="40" width="280" height="8" fill="#172031"/>
-            <text x="30" y="38" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="8" letter-spacing=".5">ATASMIYA ADMIN</text>
-            <text x="270" y="38" text-anchor="end" fill="rgba(26,86,219,.6)" font-family="monospace" font-size="7">● Live</text>
-            <!-- Stat cards -->
-            <rect x="30" y="56" width="60" height="36" rx="4" fill="#172031" stroke="rgba(26,86,219,.15)" stroke-width="1"/>
-            <text x="60" y="70" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="11" font-weight="bold">148</text>
-            <text x="60" y="82" text-anchor="middle" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="6">LOTS</text>
-            <rect x="98" y="56" width="60" height="36" rx="4" fill="#172031" stroke="rgba(26,86,219,.15)" stroke-width="1"/>
-            <text x="128" y="70" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="11" font-weight="bold">62</text>
-            <text x="128" y="82" text-anchor="middle" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="6">RESTOS</text>
-            <rect x="166" y="56" width="60" height="36" rx="4" fill="#172031" stroke="rgba(26,86,219,.15)" stroke-width="1"/>
-            <text x="196" y="70" text-anchor="middle" fill="rgba(26,200,100,.7)" font-family="monospace" font-size="11" font-weight="bold">58</text>
-            <text x="196" y="82" text-anchor="middle" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="6">CERTIFS</text>
-            <rect x="234" y="56" width="56" height="36" rx="4" fill="#172031" stroke="rgba(255,100,100,.15)" stroke-width="1"/>
-            <text x="262" y="70" text-anchor="middle" fill="rgba(255,120,120,.8)" font-family="monospace" font-size="11" font-weight="bold">4</text>
-            <text x="262" y="82" text-anchor="middle" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="6">ALERTS</text>
-            <!-- Table -->
-            <rect x="30" y="100" width="260" height="12" rx="2" fill="#172031"/>
-            <text x="34" y="110" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Lot ID</text>
-            <text x="120" y="110" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Restaurant</text>
-            <text x="230" y="110" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Status</text>
-            <rect x="30" y="114" width="260" height="18" rx="2" fill="rgba(26,86,219,.06)"/>
-            <text x="34" y="126" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">#LOT-2024-148</text>
-            <text x="120" y="126" fill="rgba(221,216,207,.6)" font-family="monospace" font-size="7">Al Baraka Paris</text>
-            <rect x="228" y="116" width="44" height="12" rx="3" fill="rgba(26,200,100,.15)" stroke="rgba(26,200,100,.3)" stroke-width="1"/>
-            <text x="250" y="126" text-anchor="middle" fill="rgba(26,200,100,.8)" font-family="monospace" font-size="7">Valid</text>
-            <rect x="30" y="134" width="260" height="16" rx="2"/>
-            <text x="34" y="145" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">#LOT-2024-147</text>
-            <text x="120" y="145" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Dar Zitoun Lyon</text>
-            <rect x="228" y="135" width="44" height="12" rx="3" fill="rgba(255,180,0,.1)" stroke="rgba(255,180,0,.3)" stroke-width="1"/>
-            <text x="250" y="145" text-anchor="middle" fill="rgba(255,180,0,.8)" font-family="monospace" font-size="7">Pending</text>
-            <rect x="30" y="154" width="260" height="16" rx="2" fill="rgba(26,86,219,.04)"/>
-            <text x="34" y="165" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">#LOT-2024-146</text>
-            <text x="120" y="165" fill="rgba(221,216,207,.4)" font-family="monospace" font-size="7">Maison Halal Nice</text>
-            <rect x="228" y="155" width="44" height="12" rx="3" fill="rgba(26,200,100,.15)" stroke="rgba(26,200,100,.3)" stroke-width="1"/>
-            <text x="250" y="165" text-anchor="middle" fill="rgba(26,200,100,.8)" font-family="monospace" font-size="7">Valid</text>
-            <!-- GPS Map -->
-            <rect x="30" y="176" width="260" height="50" rx="4" fill="#172031"/>
-            <text x="40" y="193" fill="rgba(26,86,219,.6)" font-family="monospace" font-size="7" letter-spacing=".5">GPS ANTI-FRAUD · 50m RADIUS</text>
-            <!-- Map dots -->
-            <circle cx="100" cy="208" r="4" fill="rgba(26,200,100,.6)"/>
-            <circle cx="100" cy="208" r="10" fill="none" stroke="rgba(26,200,100,.2)" stroke-width="1" stroke-dasharray="3 2"/>
-            <circle cx="180" cy="204" r="4" fill="rgba(26,86,219,.6)"/>
-            <circle cx="240" cy="210" r="3" fill="rgba(255,100,100,.6)"/>
-            <text x="243" y="207" fill="rgba(255,100,100,.6)" font-family="monospace" font-size="6">!</text>
-            <!-- Phone: consumer -->
-            <rect x="330" y="100" width="120" height="220" rx="16" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <rect x="342" y="116" width="96" height="188" rx="8" fill="#0c1520"/>
-            <text x="390" y="135" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="7">SCAN QR CODE</text>
-            <!-- QR code visual -->
-            <rect x="358" y="142" width="64" height="64" rx="4" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <rect x="362" y="146" width="12" height="12" rx="1" fill="rgba(26,86,219,.6)"/>
-            <rect x="402" y="146" width="12" height="12" rx="1" fill="rgba(26,86,219,.6)"/>
-            <rect x="362" y="186" width="12" height="12" rx="1" fill="rgba(26,86,219,.6)"/>
-            <rect x="376" y="152" width="4" height="4" fill="rgba(221,216,207,.3)"/>
-            <rect x="382" y="152" width="4" height="4" fill="rgba(221,216,207,.3)"/>
-            <rect x="376" y="158" width="4" height="4" fill="rgba(221,216,207,.3)"/>
-            <rect x="384" y="164" width="12" height="4" fill="rgba(221,216,207,.2)"/>
-            <rect x="376" y="170" width="20" height="4" fill="rgba(221,216,207,.2)"/>
-            <!-- Verified badge -->
-            <rect x="354" y="214" width="72" height="28" rx="6" fill="rgba(26,200,100,.15)" stroke="rgba(26,200,100,.4)" stroke-width="1"/>
-            <text x="390" y="226" text-anchor="middle" fill="rgba(26,200,100,.9)" font-family="monospace" font-size="8" font-weight="bold">✓ HALAL</text>
-            <text x="390" y="237" text-anchor="middle" fill="rgba(26,200,100,.6)" font-family="monospace" font-size="6">Valid · June 2025</text>
-            <!-- Phone manager -->
-            <rect x="470" y="80" width="120" height="240" rx="16" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <rect x="482" y="96" width="96" height="208" rx="8" fill="#0c1520"/>
-            <text x="530" y="114" text-anchor="middle" fill="rgba(91,142,245,.7)" font-family="monospace" font-size="7">MANAGER APP</text>
-            <text x="530" y="130" text-anchor="middle" fill="rgba(221,216,207,.5)" font-family="monospace" font-size="7">Scan incoming lot</text>
-            <rect x="494" y="138" width="72" height="60" rx="4" fill="#172031" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="530" y="160" text-anchor="middle" fill="rgba(26,86,219,.5)" font-family="monospace" font-size="20">⊡</text>
-            <text x="530" y="178" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="6">point camera →</text>
-            <rect x="494" y="206" width="72" height="28" rx="4" fill="rgba(26,86,219,.1)" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="530" y="219" text-anchor="middle" fill="rgba(91,142,245,.6)" font-family="monospace" font-size="7">GPS validated</text>
-            <text x="530" y="229" text-anchor="middle" fill="rgba(26,200,100,.5)" font-family="monospace" font-size="6">● within 50m ✓</text>
-            <text x="530" y="258" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="6">AES-256 · JWT</text>
-            <text x="530" y="268" text-anchor="middle" fill="rgba(221,216,207,.3)" font-family="monospace" font-size="6">Offline-first · SQLite</text>
-          </svg>
+          <img class="pcover" src="assets/atasmiyacover.png" alt="ATASMIYA cover"/>
         </div>
         <div class="pinfo">
           <div class="pnum">04 — Mobile + Web</div>
@@ -860,55 +667,7 @@ section{padding:112px 52px;position:relative;}
       <!-- CIM SALABYM E-commerce -->
       <div class="proj rv d2" data-tags="fullstack,web" data-date="2023-06">
         <div class="pimg">
-          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#0c1520">
-            <defs>
-              <pattern id="g5" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(26,86,219,.07)" stroke-width="1"/></pattern>
-            </defs>
-            <rect width="600" height="400" fill="url(#g5)"/>
-
-            <!-- Storefront -->
-            <rect x="30" y="36" width="350" height="240" rx="10" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <rect x="30" y="36" width="350" height="30" rx="10" fill="#172031"/>
-            <text x="50" y="56" fill="rgba(91,142,245,.75)" font-family="monospace" font-size="8" letter-spacing=".7">CIM SALABYM STORE</text>
-            <rect x="46" y="82" width="318" height="20" rx="6" fill="#0c1520" stroke="rgba(26,86,219,.2)" stroke-width="1"/>
-            <text x="58" y="95" fill="rgba(221,216,207,.45)" font-family="monospace" font-size="7">Search handmade ceramic decor...</text>
-
-            <!-- Product grid -->
-            <rect x="46" y="114" width="98" height="142" rx="6" fill="#172031" stroke="rgba(26,86,219,.12)" stroke-width="1"/>
-            <rect x="154" y="114" width="98" height="142" rx="6" fill="#172031" stroke="rgba(26,86,219,.12)" stroke-width="1"/>
-            <rect x="262" y="114" width="98" height="142" rx="6" fill="#172031" stroke="rgba(26,86,219,.12)" stroke-width="1"/>
-            <circle cx="95" cy="155" r="24" fill="rgba(26,86,219,.18)"/>
-            <circle cx="203" cy="155" r="24" fill="rgba(26,86,219,.18)"/>
-            <circle cx="311" cy="155" r="24" fill="rgba(26,86,219,.18)"/>
-            <rect x="62" y="188" width="66" height="4" rx="2" fill="rgba(221,216,207,.2)"/>
-            <rect x="170" y="188" width="66" height="4" rx="2" fill="rgba(221,216,207,.2)"/>
-            <rect x="278" y="188" width="66" height="4" rx="2" fill="rgba(221,216,207,.2)"/>
-            <rect x="72" y="198" width="46" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="180" y="198" width="46" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="288" y="198" width="46" height="3" rx="2" fill="rgba(221,216,207,.12)"/>
-            <rect x="70" y="212" width="50" height="16" rx="4" fill="rgba(26,86,219,.35)"/>
-            <rect x="178" y="212" width="50" height="16" rx="4" fill="rgba(26,86,219,.35)"/>
-            <rect x="286" y="212" width="50" height="16" rx="4" fill="rgba(26,86,219,.35)"/>
-
-            <!-- Checkout and admin -->
-            <rect x="404" y="36" width="166" height="160" rx="10" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="487" y="58" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="8" letter-spacing=".6">CHECKOUT</text>
-            <rect x="420" y="70" width="134" height="12" rx="3" fill="#172031"/>
-            <rect x="420" y="88" width="95" height="9" rx="3" fill="rgba(221,216,207,.12)"/>
-            <rect x="420" y="101" width="120" height="9" rx="3" fill="rgba(221,216,207,.12)"/>
-            <rect x="420" y="120" width="134" height="24" rx="5" fill="rgba(26,86,219,.25)" stroke="rgba(26,86,219,.4)" stroke-width="1"/>
-            <text x="487" y="136" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="8">Stripe Payment</text>
-
-            <rect x="404" y="214" width="166" height="150" rx="10" fill="#111b28" stroke="rgba(26,86,219,.25)" stroke-width="1"/>
-            <text x="487" y="236" text-anchor="middle" fill="rgba(91,142,245,.8)" font-family="monospace" font-size="8" letter-spacing=".6">ADMIN BACK-OFFICE</text>
-            <rect x="420" y="248" width="134" height="16" rx="4" fill="#172031"/>
-            <text x="426" y="259" fill="rgba(221,216,207,.45)" font-family="monospace" font-size="7">Orders · Inventory · CMS</text>
-            <rect x="420" y="272" width="134" height="8" rx="3" fill="rgba(221,216,207,.15)"/>
-            <rect x="420" y="285" width="110" height="8" rx="3" fill="rgba(221,216,207,.12)"/>
-            <rect x="420" y="298" width="122" height="8" rx="3" fill="rgba(221,216,207,.12)"/>
-            <rect x="420" y="314" width="68" height="18" rx="4" fill="rgba(26,86,219,.22)" stroke="rgba(26,86,219,.35)" stroke-width="1"/>
-            <text x="454" y="326" text-anchor="middle" fill="#5b8ef5" font-family="monospace" font-size="7">Manage</text>
-          </svg>
+          <img class="pcover" src="assets/maison_knuz_banner.png" alt="CIM SALABYM cover"/>
         </div>
         <div class="pinfo">
           <div class="pnum">05 — E-commerce</div>
@@ -971,13 +730,13 @@ section{padding:112px 52px;position:relative;}
         <span class="edu-tag">Current</span>
         <div class="edu-per">Sep 2025 – Present</div>
         <div class="edu-deg">Engineering Degree<br>Big Data & Artificial Intelligence</div>
-        <div class="edu-sch">Polytech International · Tunis</div>
+        <div class="edu-sch-line"><img class="edu-logo pi" src="assets/pi.jpg" alt="Polytech International logo"/><div class="edu-sch">Polytech International · Tunis</div></div>
         <div class="edu-det">First-year common core in progress. Specialisation: Big Data & AI from January 2027.</div>
       </div>
       <div class="edu rv d3">
         <div class="edu-per">2022 – 2025</div>
         <div class="edu-deg">Licence — Embedded Systems<br>& Mobile Development</div>
-        <div class="edu-sch">ISET Charguia · Tunis</div>
+        <div class="edu-sch-line"><img class="edu-logo" src="assets/iset.jpg" alt="ISET Charguia logo"/><div class="edu-sch">ISET Charguia · Tunis</div></div>
         <div class="edu-det">Core modules: IoT systems, embedded C/C++, Android development, computer networks.</div>
         <span class="edu-gpa">16.78 / 20</span>
       </div>
