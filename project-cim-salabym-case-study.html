@@ -35,6 +35,13 @@ footer{padding:38px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
 .lb-prev{left:18px}
 .lb-next{right:18px}
 .lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid var(--bd);background:rgba(12,21,32,.85);color:var(--cr);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.tabs{display:flex;gap:2px;margin-bottom:24px;border-bottom:1px solid var(--bd)}
+.tab{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;background:transparent;border:none;color:var(--cm);cursor:pointer;position:relative;transition:.3s}
+.tab:hover{color:var(--cr)}
+.tab.active{color:var(--blue)}
+.tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--blue)}
+.tab-content{display:none}
+.tab-content.active{display:block}
 @media(max-width:900px){
 	nav{padding:12px 14px;align-items:flex-start;gap:10px}
 	.links{gap:6px}
@@ -65,31 +72,62 @@ footer{padding:38px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
 <section class="wrap sec reveal" id="problem"><div class="tag">Background + Problem</div><h2 class="h2">From fragmented operations to one platform</h2><div class="grid2"><article class="card"><h3>Business pain</h3><p>The brand needed a strong digital storefront while operations were still split across manual tools. Inventory, content updates, and order tracking lacked a single source of truth.</p></article><article class="card"><h3>Requirements</h3><ul class="list"><li>Flexible product catalog and collection pages.</li><li>Reliable checkout and account workflows.</li><li>Admin controls for inventory, orders, and CMS.</li><li>Scalable backend and clean API boundaries.</li></ul></article></div></section>
 <section class="wrap sec reveal" id="tech"><div class="tag">Technical Solution</div><h2 class="h2">Architecture and implementation choices</h2><div class="grid3"><article class="mini"><b>Storefront Layer</b><p>Next.js front-end with dynamic catalog and editorial sections tailored to product storytelling and conversion.</p></article><article class="mini"><b>Commerce Core</b><p>Spring Boot services for products, carts, orders, and account flows with MySQL persistence and role-aware access.</p></article><article class="mini"><b>Operations Layer</b><p>Back-office modules for inventory, CMS, and CRM, plus Stripe and OAuth integration for secure transaction lifecycle.</p></article></div></section>
 <section class="wrap sec reveal"><div class="tag">Deliverables + Impact</div><h2 class="h2">What was shipped and the value created</h2><div class="grid2"><article class="card"><h3>Deliverables</h3><ul class="list"><li>Public e-commerce storefront and navigation system.</li><li>Secure checkout and user identity integrations.</li><li>Complete admin control center for operations.</li><li>Data model and API stack for future scaling.</li></ul></article><article class="card"><h3>Impact</h3><p>The brand moved from fragmented management to a coherent digital operation, improving publishing speed, order visibility, and operational consistency.</p></article></div></section>
-<section class="wrap sec" id="gallery"><div class="tag">Gallery</div><h2 class="h2">Storefront and back-office snapshots</h2><div class="gallery"><article class="g"><img src="assets/maison_knuz_banner.png" alt="Maison Knuz storefront banner"/><span>Landing + featured collections</span></article><article class="g"><img src="assets/Maison_knuz2.png" alt="Maison Knuz product showcase"/><span>Product detail page</span></article><article class="g"><img src="assets/maison_knuz_paymethods.jpg" alt="Maison Knuz checkout and payment options"/><span>Checkout flow</span></article><article class="g"><img src="assets/maison_knuz_profile.png" alt="Maison Knuz customer profile"/><span>Order dashboard</span></article><article class="g"><img src="assets/maison_knuz_contact.png" alt="Maison Knuz contact interface"/><span>CMS and CRM panel</span></article><article class="g"><img src="assets/maison_knuz_stripe.jpg" alt="Maison Knuz Stripe payment integration"/><span>Stripe integration</span></article></div></section>
+<section class="wrap sec" id="gallery"><div class="tag">Gallery</div><h2 class="h2">Storefront and back-office snapshots</h2>
+<div class="tabs"><button class="tab active" data-tab="shop">Shop (Portail Client)</button><button class="tab" data-tab="admin">Admin Back Office</button></div>
+<div class="tab-content active" id="shop"><div class="gallery"><article class="g"><img src="assets/maison_knuz_banner.png" alt="Maison Knuz storefront banner"/><span>Landing + featured collections</span></article><article class="g"><img src="assets/Maison_knuz2.png" alt="Maison Knuz product showcase"/><span>Product detail page</span></article><article class="g"><img src="assets/maison_knuz_paymethods.jpg" alt="Maison Knuz checkout and payment options"/><span>Checkout flow</span></article><article class="g"><img src="assets/maison_knuz_profile.png" alt="Maison Knuz customer profile"/><span>Order dashboard</span></article><article class="g"><img src="assets/maison_knuz_contact.png" alt="Maison Knuz contact interface"/><span>CMS and CRM panel</span></article><article class="g"><img src="assets/maison_knuz_stripe.jpg" alt="Maison Knuz Stripe payment integration"/><span>Stripe integration</span></article></div></div>
+<div class="tab-content" id="admin"><div class="gallery"><article class="g"><img src="assets/CYMSALABYM1.png" alt="Admin dashboard overview"/><span>Dashboard Overview</span></article><article class="g"><img src="assets/CYMSALABYM2.png" alt="Admin analytics"/><span>Analytics</span></article><article class="g"><img src="assets/CYMSALABYM4.png" alt="Admin orders management"/><span>Orders Management</span></article><article class="g"><img src="assets/CYMSALABYM5.png" alt="Admin products catalog"/><span>Products Catalog</span></article><article class="g"><img src="assets/CYMSALABYM6.png" alt="Admin product details"/><span>Product Details</span></article><article class="g"><img src="assets/CYMSALABYM7.png" alt="Admin categories"/><span>Categories</span></article><article class="g"><img src="assets/CYMSALABYM8.png" alt="Admin customers"/><span>Customers</span></article><article class="g"><img src="assets/CYMSALABYM9.png" alt="Admin user management"/><span>User Management</span></article><article class="g"><img src="assets/CYMSALABYM10.png" alt="Admin CMS"/><span>CMS Content</span></article><article class="g"><img src="assets/CYMSALABYM11.png" alt="Admin settings"/><span>Settings</span></article><article class="g"><img src="assets/CYMSALABYM12.png" alt="Admin reports"/><span>Reports</span></article><article class="g"><img src="assets/CYMSALABYM13.png" alt="Admin notifications"/><span>Notifications</span></article><article class="g"><img src="assets/CYMSALABYM14.png" alt="Admin profile"/><span>Admin Profile</span></article></div></div></section>
 <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lb-close" type="button" aria-label="Close">&times;</button><button class="lb-btn lb-prev" type="button" aria-label="Previous">&#8249;</button><img id="lightboxImage" alt="Expanded gallery visual"/><button class="lb-btn lb-next" type="button" aria-label="Next">&#8250;</button></div>
 <footer class="wrap">CIM SALABYM case study - Chedy Korbi</footer>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.14});
 document.querySelectorAll('.reveal,.g').forEach(el=>io.observe(el));
 
-const galleryItems=[...document.querySelectorAll('.gallery > article')];
-const gallerySources=galleryItems.map(item=>{
-	const img=item.querySelector('img');
-	if(img) return img.src;
-	const svg=item.querySelector('svg');
-	if(svg) return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));
-	return null;
-});
 const lightbox=document.getElementById('lightbox');
 const lightboxImage=document.getElementById('lightboxImage');
 const closeBtn=lightbox.querySelector('.lb-close');
 const prevBtn=lightbox.querySelector('.lb-prev');
 const nextBtn=lightbox.querySelector('.lb-next');
 let activeIndex=0;
-function openLightbox(i){if(!gallerySources[i]) return;activeIndex=i;lightboxImage.src=gallerySources[activeIndex];lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');}
+let currentTabGallerySources=[];
+
+function openLightbox(i){const sources=currentTabGallerySources;if(!sources[i]) return;activeIndex=i;lightboxImage.src=sources[activeIndex];lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');}
 function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.removeAttribute('src');}
-function moveLightbox(dir){if(!gallerySources.length) return;let next=(activeIndex+dir+gallerySources.length)%gallerySources.length;while(!gallerySources[next]&&next!==activeIndex){next=(next+dir+gallerySources.length)%gallerySources.length;}activeIndex=next;if(gallerySources[activeIndex]) lightboxImage.src=gallerySources[activeIndex];}
-galleryItems.forEach((item,i)=>item.addEventListener('click',()=>openLightbox(i)));
+function moveLightbox(dir){const sources=currentTabGallerySources;if(!sources.length) return;let next=(activeIndex+dir+sources.length)%sources.length;while(!sources[next]&&next!==activeIndex){next=(next+dir+sources.length)%sources.length;}activeIndex=next;if(sources[activeIndex]) lightboxImage.src=sources[activeIndex];}
+
+function updateCurrentTabGallery(){
+	const activeTab=document.querySelector('.tab.active');
+	if(!activeTab) return;
+	const container=document.getElementById(activeTab.dataset.tab);
+	if(!container) return;
+	const items=container.querySelectorAll('.gallery > article');
+	currentTabGallerySources=[...items].map(item=>{
+		const img=item.querySelector('img');
+		return img ? img.src : null;
+	});
+}
+
+// Tab functionality
+document.querySelectorAll('.tab').forEach(tab=>{
+	tab.addEventListener('click',()=>{
+		document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+		document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+		tab.classList.add('active');
+		document.getElementById(tab.dataset.tab).classList.add('active');
+		activeIndex=0;
+		updateCurrentTabGallery();
+	});
+});
+
+// Add click handlers to all gallery items (uses current tab's gallery)
+document.addEventListener('DOMContentLoaded',()=>{
+	updateCurrentTabGallery();
+	document.querySelectorAll('.gallery').forEach(gallery=>{
+		gallery.querySelectorAll('article').forEach((item,i)=>{
+			item.addEventListener('click',()=>openLightbox(i));
+		});
+	});
+});
+
 closeBtn.addEventListener('click',closeLightbox);
 prevBtn.addEventListener('click',()=>moveLightbox(-1));
 nextBtn.addEventListener('click',()=>moveLightbox(1));
