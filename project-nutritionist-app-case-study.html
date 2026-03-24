@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PawTracker Project Case Study - Chedy Korbi</title>
+<title>Product Scoring & Ingredient Analysis Mobile App - Chedy Korbi</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -132,16 +132,16 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
   </div>
 </nav>
 
-<div class="case-cover" style="background-image:url('assets/pawtrackercover.png')"></div>
+<div class="case-cover" style="background-image:url('assets/nutritionist-app-cover.png')"></div>
 <header class="hero wrap reveal">
   <div class="ey">Project Deep Dive</div>
-  <h1>PawTracker<br/>Case Study</h1>
-  <p class="hero-sub">An academic IoT + AI system built to continuously monitor pet health and behavior in real-time. This case study breaks down the full journey from problem framing to architecture, system design, and technical implementation of an end-to-end monitoring ecosystem.</p>
+  <h1>Product Scoring & Ingredient<br/>Analysis Mobile App<br/>Case Study</h1>
+  <p class="hero-sub">A comprehensive cross-platform mobile application (iOS & Android) built for professional nutritionists. The app combines barcode scanning technology across food, cosmetic, and household products with an advanced ML-powered scoring engine to generate validated product sheets with composition analysis, quality prediction, and nutritional status rating (Excellent / Good / Average / Poor).</p>
   <div class="hero-metrics">
-    <div class="metric"><span class="n" data-n="5">0</span><span class="l">Internship Project</span></div>
-    <div class="metric"><span class="n" data-n="1">0</span><span class="l">Second Latency Target</span></div>
-    <div class="metric"><span class="n" data-n="3">0</span><span class="l">Client Apps</span></div>
-    <div class="metric"><span class="n" data-n="9">0</span><span class="l">Core Tech Modules</span></div>
+    <div class="metric"><span class="n" data-n="4">0</span><span class="l">Product Categories</span></div>
+    <div class="metric"><span class="n" data-n="100">0</span><span class="l">% On-Device ML</span></div>
+    <div class="metric"><span class="n" data-n="3">0</span><span class="l">ML Model Types</span></div>
+    <div class="metric"><span class="n" data-n="8">0</span><span class="l">Risk Dimensions</span></div>
   </div>
 </header>
 
@@ -151,15 +151,15 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
   <div class="grid2">
     <article class="card">
       <h3>Why this mattered</h3>
-      <p>Pet owners and veterinarians usually react after visible symptoms. Existing consumer trackers focused on GPS, but lacked multi-signal health interpretation and context-aware alerting. The challenge was to move from passive tracking to preventive monitoring.</p>
+      <p>Professional nutritionists need rapid assessment tools to evaluate food, cosmetic, and household products for their clients. Manual composition research is time-consuming, often incomplete, and prone to inconsistency. The solution required automated product identification, accessible product data, and standardized quality scoring based on nutritionist expertise.</p>
     </article>
     <article class="card">
       <h3>Constraints and risks</h3>
       <ul class="bul">
-        <li>Low-power wearable hardware with noisy sensor streams.</li>
-        <li>Unstable mobile connectivity and roaming outdoor conditions.</li>
-        <li>Need for interpretable scores, not black-box outputs.</li>
-        <li>Cross-role workflows: owner app + veterinarian dashboard.</li>
+        <li>Product database coverage across four distinct categories with varying data availability.</li>
+        <li>ML model must be explainable and interpretable for professional clinical use.</li>
+        <li>On-device scoring for offline reliability and data privacy in clinical settings.</li>
+        <li>Cross-platform support (iOS and Android) with native performance expectations.</li>
       </ul>
     </article>
   </div>
@@ -167,20 +167,20 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
 
 <section class="sec wrap reveal" id="solution">
   <div class="head">Our Solution</div>
-  <h2 class="h2">End-to-End Monitoring System</h2>
+  <h2 class="h2">Integrated Scanning & Scoring System</h2>
   <div class="grid2">
     <article class="card">
       <h3>Product strategy</h3>
-      <p>We designed a closed loop: wearable acquisition, low-latency ingestion, model scoring, and role-specific interfaces. Owners receive clear alerts and location context; veterinarians get longitudinal trend visibility and patient records.</p>
-      <div class="pills"><span>Real-time pipeline</span><span>Risk scoring</span><span>Alert engine</span><span>Role-based UX</span></div>
+      <p>We designed a seamless workflow: barcode scanning → product identification → composition analysis → ML-based quality scoring → color-coded risk visualization. Nutritionists receive validated product sheets with explainable scoring indicators, enabling fast clinical decision-making and client recommendations.</p>
+      <div class="pills"><span>Multi-category support</span><span>Barcode recognition</span><span>Composition mapping</span><span>ML scoring</span><span>Risk visualization</span></div>
     </article>
     <article class="card">
       <h3>What we delivered</h3>
       <ul class="bul">
-        <li>ESP32 wearable firmware for activity and vitals capture.</li>
-        <li>MQTT event streaming with backend processing services.</li>
-        <li>Android app with live GPS, health cards, and notifications.</li>
-        <li>VetLink Angular web portal with records and follow-up.</li>
+        <li>Flutter cross-platform mobile app for iOS and Android with native barcode scanning.</li>
+        <li>Spring Boot backend API with MySQL database storing product catalogs and nutritionist-validated datasets.</li>
+        <li>ML scoring engine built with Scikit-learn: Random Forest regression for quality score prediction, classification for status categorization.</li>
+        <li>JWT-based authentication and REST APIs for secure client-server communication.</li>
       </ul>
     </article>
   </div>
@@ -191,43 +191,43 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
   <h2 class="h2">How we solved it technically</h2>
   <div class="tech-grid">
     <article class="tblock">
-      <h4>Data Ingestion</h4>
-      <p>Wearable telemetry is published over MQTT topics segmented by pet profile and stream type. Backend consumers validate, normalize, and queue packets for feature extraction.</p>
-      <div class="pills"><span>ESP32</span><span>MQTT</span><span>Spring Boot</span></div>
+      <h4>Mobile & Scanning</h4>
+      <p>Flutter provides unified codebase for iOS/Android with native capabilities. Barcode scanning library integrates camera module, decodes product identifiers, and initiates server lookup. Responsive UI renders product sheets with color-coded risk indicators based on scoring output.</p>
+      <div class="pills"><span>Flutter</span><span>Dart</span><span>Native Bridge</span><span>Camera API</span></div>
     </article>
     <article class="tblock">
-      <h4>ML Inference Layer</h4>
-      <p>Supervised regression and classification pipelines convert temporal features into risk states calibrated by breed and age. Threshold logic was tuned to reduce false alarms.</p>
-      <div class="pills"><span>Scikit-learn</span><span>Feature Windows</span><span>Calibration</span></div>
+      <h4>ML Scoring Engine</h4>
+      <p>Scikit-learn Random Forest models trained on nutritionist-validated product dataset. Regression pipeline predicts numerical quality scores; classification pipeline assigns status bands (Excellent/Good/Average/Poor). All model features engineered from product composition data with explainability through feature importance analysis.</p>
+      <div class="pills"><span>Scikit-learn</span><span>Random Forest</span><span>Feature Engineering</span><span>Model Calibration</span></div>
     </article>
     <article class="tblock">
-      <h4>Experience Layer</h4>
-      <p>The mobile app prioritizes rapid signal comprehension. VetLink extends this with case history and appointment context to support operational clinical decisions.</p>
-      <div class="pills"><span>Android Java</span><span>Angular</span><span>MySQL</span></div>
+      <h4>Backend & Data</h4>
+      <p>Spring Boot REST APIs handle product lookups, scoring requests, and user management. MySQL stores product catalogs across 4 categories with complete composition and dimension data. JWT tokens secure API endpoints. Product scoring system documents all dimensions, intervals, and status bands for clinical transparency.</p>
+      <div class="pills"><span>Spring Boot</span><span>MySQL</span><span>JWT Auth</span><span>REST APIs</span></div>
     </article>
   </div>
 </section>
 
 <section class="sec wrap reveal">
   <div class="head">System Flow</div>
-  <h2 class="h2">Pipeline from sensor to action</h2>
+  <h2 class="h2">Pipeline from scan to assessment</h2>
   <div class="flow">
-    <article class="step"><b>Step 01</b><p>Wearable samples activity, pulse, and movement intervals.</p></article>
-    <article class="step"><b>Step 02</b><p>Gateway packets stream to cloud through MQTT topics.</p></article>
-    <article class="step"><b>Step 03</b><p>Backend services clean data and compute feature windows.</p></article>
-    <article class="step"><b>Step 04</b><p>Models generate health status and anomaly probabilities.</p></article>
-    <article class="step"><b>Step 05</b><p>Apps push alerts and dashboard updates to each role.</p></article>
+    <article class="step"><b>Step 01</b><p>User scans barcode from food, cosmetic, household, or supplement product.</p></article>
+    <article class="step"><b>Step 02</b><p>Mobile app sends identifier to backend for product lookup and composition retrieval.</p></article>
+    <article class="step"><b>Step 03</b><p>ML model extracts features from composition and generates quality score prediction.</p></article>
+    <article class="step"><b>Step 04</b><p>Classification model assigns status rating and constructs risk profile with color codes.</p></article>
+    <article class="step"><b>Step 05</b><p>App displays validated product sheet with all dimensions, scores, and clinical recommendations.</p></article>
   </div>
 </section>
 
 <section class="sec wrap reveal">
   <div class="head">Deliverable + Impact</div>
-  <h2 class="h2">System outputs and technical scope</h2>
+  <h2 class="h2">Production outputs and value</h2>
   <div class="impact">
-    <article class="i"><strong>3</strong><span>Integrated products</span></article>
-    <article class="i"><strong>100%</strong><span>End-to-End Integration</span></article>
-    <article class="i"><strong>&lt;1s</strong><span>Latency by Design</span></article>
-    <article class="i"><strong>Async</strong><span>Real-Time Pipeline</span></article>
+    <article class="i"><strong>4</strong><span>Product Categories Supported</span></article>
+    <article class="i"><strong>2</strong><span>ML Model Types (Regression &amp; Classification)</span></article>
+    <article class="i"><strong>100%</strong><span>Explainable Scoring</span></article>
+    <article class="i"><strong>8+</strong><span>Analysis Dimensions</span></article>
   </div>
 </section>
 
@@ -236,12 +236,12 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
   <h2 class="h2">Interface and system snapshots</h2>
   <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Images &amp; screenshots are not available yet. Coming soon.</p>
   <div class="gallery">
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="7" y="8" width="86" height="10" fill="#172031"/><rect x="7" y="22" width="38" height="42" fill="#172031"/><rect x="49" y="22" width="44" height="20" fill="#172031"/><rect x="49" y="46" width="44" height="18" fill="#172031"/></svg><div class="t">Owner app dashboard</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="10" y="10" width="80" height="55" fill="#172031"/><polyline points="14,55 28,40 42,44 56,31 72,34 86,24" fill="none" stroke="#1A56DB" stroke-width="2"/></svg><div class="t">Telemetry trend analysis</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="6" y="10" width="88" height="14" fill="#172031"/><rect x="6" y="28" width="88" height="37" fill="#172031"/><circle cx="55" cy="46" r="10" fill="none" stroke="#1A56DB"/><circle cx="55" cy="46" r="2" fill="#1A56DB"/></svg><div class="t">GPS risk context</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="8" width="84" height="59" fill="#172031"/><rect x="12" y="14" width="76" height="8" fill="#1A56DB" opacity=".3"/><rect x="12" y="28" width="30" height="34" fill="#111b28"/><rect x="46" y="28" width="42" height="15" fill="#111b28"/><rect x="46" y="47" width="42" height="15" fill="#111b28"/></svg><div class="t">VetLink patient page</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="12" y="14" width="76" height="47" fill="#172031"/><rect x="18" y="22" width="20" height="6" fill="#1A56DB" opacity=".5"/><rect x="18" y="32" width="64" height="4" fill="#ddd8cf" opacity=".25"/><rect x="18" y="40" width="54" height="4" fill="#ddd8cf" opacity=".2"/><rect x="18" y="48" width="44" height="4" fill="#ddd8cf" opacity=".2"/></svg><div class="t">Alert timeline and notes</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="10" width="84" height="55" fill="#172031"/><rect x="14" y="16" width="70" height="7" fill="#1A56DB" opacity=".35"/><rect x="14" y="28" width="24" height="30" fill="#111b28"/><rect x="42" y="28" width="24" height="30" fill="#111b28"/><rect x="70" y="28" width="14" height="30" fill="#111b28"/></svg><div class="t">Operational monitoring board</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="8" width="84" height="14" fill="#172031"/><circle cx="50" cy="38" r="12" fill="none" stroke="#1A56DB" stroke-width="2"/><rect x="10" y="60" width="80" height="8" fill="#172031"/></svg><div class="t">Barcode scanning interface</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="6" y="8" width="88" height="14" fill="#172031"/><rect x="10" y="26" width="80" height="42" fill="#172031"/><rect x="14" y="30" width="24" height="6" fill="#1A56DB" opacity=".4"/><rect x="14" y="40" width="72" height="4" fill="#ddd8cf" opacity=".2"/><rect x="14" y="48" width="60" height="4" fill="#ddd8cf" opacity=".2"/></svg><div class="t">Product composition sheet</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="10" width="84" height="55" fill="#172031"/><rect x="14" y="18" width="72" height="6" fill="#1A56DB" opacity=".35"/><circle cx="25" cy="40" r="8" fill="none" stroke="#22C55E"/><circle cx="50" cy="40" r="8" fill="none" stroke="#EAB308"/><circle cx="75" cy="40" r="8" fill="none" stroke="#F97316"/></svg><div class="t">Quality score & status rating</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="6" y="8" width="88" height="14" fill="#172031"/><rect x="10" y="26" width="20" height="42" fill="#172031"/><rect x="34" y="26" width="20" height="42" fill="#172031"/><rect x="58" y="26" width="20" height="42" fill="#172031"/><rect x="82" y="26" width="12" height="42" fill="#172031"/></svg><div class="t">Risk dimension comparison</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="10" width="84" height="55" fill="#172031"/><rect x="12" y="16" width="76" height="8" fill="#1A56DB" opacity=".3"/><line x1="20" y1="32" x2="80" y2="32" stroke="#22C55E" stroke-width="2"/><line x1="20" y1="42" x2="65" y2="42" stroke="#EAB308" stroke-width="2"/><line x1="20" y1="52" x2="55" y2="52" stroke="#F97316" stroke-width="2"/></svg><div class="t">Clinical recommendation summary</div></article>
+    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="8" width="84" height="14" fill="#172031"/><rect x="10" y="26" width="30" height="42" fill="#172031"/><rect x="44" y="26" width="30" height="42" fill="#172031"/><rect x="78" y="26" width="12" height="42" fill="#172031"/></svg><div class="t">Multi-category product explorer</div></article>
   </div>
 </section>
 
@@ -252,7 +252,7 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
   <button class="lb-btn lb-next" type="button" aria-label="Next">&#8250;</button>
 </div>
 
-<footer class="wrap">PawTracker technical case study - Chedy Korbi</footer>
+<footer class="wrap">Product Scoring & Ingredient Analysis App technical case study - Chedy Korbi</footer>
 
 <script>
 const io=new IntersectionObserver(entries=>{
@@ -298,8 +298,9 @@ function countTo(el){
 }
 const mo=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-n]').forEach(countTo);mo.unobserve(e.target);}});
-},{threshold:.4});
-mo.observe(document.querySelector('.hero-metrics'));
+},{threshold:.33});
+
+document.querySelectorAll('.hero-metrics').forEach(el=>mo.observe(el));
 </script>
 </body>
 </html>
