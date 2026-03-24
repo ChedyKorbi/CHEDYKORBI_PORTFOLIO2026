@@ -434,20 +434,21 @@ section{padding:112px 52px;position:relative;}
         </div>
       </div>
 
-      <div class="exp-item rv d3" data-tags="internship,ai" data-date="2024-07">
+      <div class="exp-item rv d3" data-tags="internship,mobile" data-date="2024-07">
         <div>
           <div class="ep">Jul 2024 – Aug 2024</div>
           <div class="eco-row"><span class="eco-logo sg"><img src="assets/LOGO_SAGEMCOM.png" alt="Sagemcom logo"/></span><div class="eco">Sagemcom S&amp;T R&amp;D</div></div>
           <div class="elc">Tunis, Tunisia</div>
           <span class="eb">Summer Intern · Android Mobile Developer</span>
-          <span class="e-tag">AI</span>
+          <span class="e-tag">Mobile</span>
         </div>
         <div>
-          <div class="er">AI Mobile Engineering Intern</div>
+          <div class="er">Android Mobile Developer</div>
           <ul class="ebuls">
-            <li>Android inventory management app for the water-sensor R&D team: full product CRUD, advanced filtering, and local SQLite database.</li>
-            <li>Integrated <strong>EfficientNet CNN (TensorFlow Lite)</strong> for automatic product recognition from device camera — auto-populating inventory records without manual entry. Result: <strong>–80% data-entry errors</strong>, identification time from 30 s to under 5 s.</li>
-            <li>Implemented a quality strategy using <strong>JUnit + Mockito</strong> for unit tests, <strong>Room/integration test suites</strong> for database and repository flows, and <strong>Espresso</strong> for critical UI journeys in inventory and camera-recognition screens.</li>
+            <li><strong>Android Inventory Management App with AI Product Recognition:</strong> Developed a full-featured Android app for R&D team managing water-sensor products with complete CRUD operations, advanced filtering, and local SQLite persistence.</li>
+            <li>Integrated <strong>EfficientNet CNN (TensorFlow Lite)</strong> on-device AI model for automatic product recognition from device camera feed — intelligently auto-populating inventory records and metadata without manual entry required.</li>
+            <li>AI-powered features achieved <strong>80% reduction in data-entry errors</strong> and reduced product identification time from 30 seconds to under 5 seconds, significantly improving R&D operational efficiency.</li>
+            <li>Built comprehensive testing suite: <strong>JUnit + Mockito</strong> for unit tests, <strong>Room/integration tests</strong> for database consistency, and <strong>Espresso</strong> for UI validation across inventory and AI recognition screens.</li>
           </ul>
           <div class="chips">
             <span class="chip">Android Java</span><span class="chip">TensorFlow Lite</span><span class="chip">EfficientNet</span><span class="chip">Room DB</span><span class="chip">SQLite</span><span class="chip">ZXing</span><span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">Espresso</span>
@@ -458,7 +459,7 @@ section{padding:112px 52px;position:relative;}
         </div>
       </div>
 
-      <div class="exp-item rv d4" data-tags="internship,mobile" data-date="2024-01">
+      <div class="exp-item rv d4 internship-extra" data-tags="internship,mobile" data-date="2024-01" style="display:none;">
         <div>
           <div class="ep">Jan 2024 – Mar 2024</div>
           <div class="eco-row"><span class="eco-logo sy"><img src="assets/logo_symatique.png" alt="Symatique logo"/></span><div class="eco">Symatique</div></div>
@@ -483,7 +484,7 @@ section{padding:112px 52px;position:relative;}
         </div>
       </div>
 
-      <div class="exp-item rv d5" data-tags="internship,web,automation" data-date="2023-08">
+      <div class="exp-item rv d5 internship-extra" data-tags="internship,web,automation" data-date="2023-08" style="display:none;">
         <div>
           <div class="ep">Aug 2023 – Sep 2023</div>
           <div class="eco-row"><span class="eco-logo xy"><img src="assets/xpertos_group_logo.jpg" alt="Xpertos IT logo"/></span><div class="eco">Xpertos IT</div></div>
@@ -507,7 +508,7 @@ section{padding:112px 52px;position:relative;}
         </div>
       </div>
 
-      <div class="exp-item rv d6" data-tags="internship,web,data" data-date="2023-01">
+      <div class="exp-item rv d6 internship-extra" data-tags="internship,web,data" data-date="2023-01" style="display:none;">
         <div>
           <div class="ep">Jan 2023 – Feb 2023</div>
           <div class="eco-row"><span class="eco-logo sg"><img src="assets/LOGO_SAGEMCOM.png" alt="Sagemcom BNR logo"/></span><div class="eco">Sagemcom BNR</div></div>
@@ -531,9 +532,13 @@ section{padding:112px 52px;position:relative;}
           </div>
         </div>
       </div>
+
+      <div class="exp-expand-cta" id="exp-expand-btn-wrap" style="text-align:center;padding:16px 0;margin-top:8px;">
+        <button class="fb" id="exp-expand-btn" onclick="toggleInternships()" style="cursor:pointer;">See More Internships ↓</button>
+      </div>
     </div>
 
-    <div class="fl-section-label rv d1">Freelance · 2023 – Present</div>
+    <div class="fl-section-label rv d1">Freelance · 2025 – Present</div>
     <div class="flg" id="fl-list">
       <div class="fl rv d2" data-tags="freelance,web,ai" data-date="2024-06">
         <img class="fl-cover" src="assets/atasmiyacover.png" alt="ATASMIYA cover"/>
@@ -903,6 +908,18 @@ function renderExp(){
     if(type==='e')list.appendChild(el);
     else flist.appendChild(el);
   });
+}
+
+// INTERNSHIP EXPAND/COLLAPSE
+let internshipsExpanded=false;
+function toggleInternships(){
+  internshipsExpanded=!internshipsExpanded;
+  const extraItems=document.querySelectorAll('.internship-extra');
+  const btn=document.getElementById('exp-expand-btn');
+  extraItems.forEach(el=>{
+    el.style.display=internshipsExpanded?'grid':'none';
+  });
+  btn.textContent=internshipsExpanded?'See Less Internships ↑':'See More Internships ↓';
 }
 
 // PROJECT FILTER + SORT
