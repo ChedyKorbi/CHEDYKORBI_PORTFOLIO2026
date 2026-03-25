@@ -215,14 +215,18 @@ section{padding:112px 52px;position:relative;}
 
 /* SKILLS */
 #skills{background:var(--s1);}
-.skg{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
-.skgr{background:var(--s2);border:1px solid var(--bdr);padding:32px 36px;transition:background .3s,border-color .3s;}
-.skgr:hover{background:var(--s3);border-color:var(--bdr-h);}
-.skg-lbl{font-family:var(--mono);font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
-.skg-lbl::after{content:'';flex:1;height:1px;background:var(--bdr);}
-.skps{display:flex;flex-wrap:wrap;gap:8px;}
-.skp{font-family:var(--mono);font-size:.7rem;color:var(--cm);background:var(--s3);border:1px solid var(--bdr);padding:6px 14px;border-radius:3px;transition:background .2s,border-color .2s,color .2s,transform .2s;}
-.skp:hover{background:var(--blue-dim);border-color:rgba(26,86,219,.5);color:var(--blue-lt);transform:translateY(-2px);}
+.skills-marquee{position:relative;overflow:hidden;border:1px solid var(--bdr);background:linear-gradient(180deg,var(--s2),rgba(12,21,32,.78));padding:18px 0;}
+.skills-marquee::before,.skills-marquee::after{content:'';position:absolute;top:0;bottom:0;width:110px;z-index:2;pointer-events:none;}
+.skills-marquee::before{left:0;background:linear-gradient(90deg,var(--s1),transparent);}
+.skills-marquee::after{right:0;background:linear-gradient(270deg,var(--s1),transparent);}
+.mq-row{position:relative;overflow:hidden;white-space:nowrap;}
+.mq-row+.mq-row{margin-top:10px;border-top:1px solid var(--bdr);padding-top:10px;}
+.mq-track{display:flex;align-items:center;width:max-content;animation:marquee 20s linear infinite;will-change:transform;}
+.mq-row.rev .mq-track{animation-duration:25s;animation-direction:reverse;}
+.mq-item{flex:0 0 auto;font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.05rem,2.1vw,1.55rem);letter-spacing:.01em;color:rgba(221,216,207,.16);padding:8px 26px 9px;border-right:1px solid var(--bdr);transition:color .35s ease,text-shadow .35s ease,opacity .35s ease;}
+.mq-item:hover{color:#f8f3e8;text-shadow:0 0 18px rgba(248,243,232,.28);opacity:1;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 
 /* EDUCATION */
 #education{background:var(--ink);}
@@ -740,27 +744,19 @@ section{padding:112px 52px;position:relative;}
 <section id="skills">
   <div class="inner">
     <div class="s-lbl rv">Skills</div>
-    <h2 class="s-head rv d1">What I Work With</h2>
+    <h2 class="s-head rv d1">My Arsenal</h2>
     <p class="s-sub rv d2">Tools matter, but orchestration matters more: I choose technologies for fit, speed, and maintainability across the full product lifecycle.</p>
-    <div class="skg">
-      <div class="skgr rv d1"><div class="skg-lbl">AI / ML</div><div class="skps">
-        <span class="skp">Machine Learning</span><span class="skp">Deep Learning</span><span class="skp">NLP</span><span class="skp">Computer Vision</span><span class="skp">TensorFlow</span><span class="skp">PyTorch</span><span class="skp">Scikit-learn</span><span class="skp">Keras</span>
-      </div></div>
-      <div class="skgr rv d2"><div class="skg-lbl">Data & EDA</div><div class="skps">
-        <span class="skp">Pandas</span><span class="skp">NumPy</span><span class="skp">Matplotlib</span><span class="skp">Seaborn</span><span class="skp">Plotly</span><span class="skp">Jupyter</span><span class="skp">SQL</span>
-      </div></div>
-      <div class="skgr rv d3"><div class="skg-lbl">Mobile & Web</div><div class="skps">
-        <span class="skp">Android Java</span><span class="skp">Flutter</span><span class="skp">React</span><span class="skp">Next.js</span><span class="skp">Angular</span><span class="skp">Streamlit</span><span class="skp">Django</span>
-      </div></div>
-      <div class="skgr rv d4"><div class="skg-lbl">Backend & DB</div><div class="skps">
-        <span class="skp">Spring Boot</span><span class="skp">Flask</span><span class="skp">FastAPI</span><span class="skp">Node.js</span><span class="skp">REST APIs</span><span class="skp">MySQL</span><span class="skp">MongoDB</span><span class="skp">SQLite</span>
-      </div></div>
-      <div class="skgr rv d1"><div class="skg-lbl">IoT & Embedded</div><div class="skps">
-        <span class="skp">ESP32</span><span class="skp">STM32</span><span class="skp">Raspberry Pi</span><span class="skp">Arduino</span><span class="skp">MQTT</span><span class="skp">C/C++</span>
-      </div></div>
-      <div class="skgr rv d2"><div class="skg-lbl">DevOps & Tools</div><div class="skps">
-        <span class="skp">Python</span><span class="skp">Java</span><span class="skp">TypeScript</span><span class="skp">Dart</span><span class="skp">Docker</span><span class="skp">Git</span><span class="skp">GitHub</span><span class="skp">GitLab</span><span class="skp">Jira</span><span class="skp">Figma</span>
-      </div></div>
+    <div class="skills-marquee rv d3" aria-label="Infinite skills marquee">
+      <div class="mq-row">
+        <div class="mq-track">
+          <span class="mq-item">Machine Learning</span><span class="mq-item">Deep Learning</span><span class="mq-item">Computer Vision</span><span class="mq-item">NLP</span><span class="mq-item">TensorFlow</span><span class="mq-item">PyTorch</span><span class="mq-item">Scikit-learn</span><span class="mq-item">Keras</span><span class="mq-item">Data Analysis</span><span class="mq-item">Pandas</span><span class="mq-item">NumPy</span><span class="mq-item">Matplotlib</span><span class="mq-item">Seaborn</span><span class="mq-item">Machine Learning</span><span class="mq-item">Deep Learning</span><span class="mq-item">Computer Vision</span><span class="mq-item">NLP</span><span class="mq-item">TensorFlow</span><span class="mq-item">PyTorch</span><span class="mq-item">Scikit-learn</span><span class="mq-item">Keras</span><span class="mq-item">Data Analysis</span><span class="mq-item">Pandas</span><span class="mq-item">NumPy</span><span class="mq-item">Matplotlib</span><span class="mq-item">Seaborn</span>
+        </div>
+      </div>
+      <div class="mq-row rev">
+        <div class="mq-track">
+          <span class="mq-item">Flutter</span><span class="mq-item">Android Java</span><span class="mq-item">React</span><span class="mq-item">Next.js</span><span class="mq-item">Angular</span><span class="mq-item">Spring Boot</span><span class="mq-item">FastAPI</span><span class="mq-item">Flask</span><span class="mq-item">REST APIs</span><span class="mq-item">MySQL</span><span class="mq-item">MongoDB</span><span class="mq-item">ESP32</span><span class="mq-item">MQTT</span><span class="mq-item">Docker</span><span class="mq-item">Git</span><span class="mq-item">Flutter</span><span class="mq-item">Android Java</span><span class="mq-item">React</span><span class="mq-item">Next.js</span><span class="mq-item">Angular</span><span class="mq-item">Spring Boot</span><span class="mq-item">FastAPI</span><span class="mq-item">Flask</span><span class="mq-item">REST APIs</span><span class="mq-item">MySQL</span><span class="mq-item">MongoDB</span><span class="mq-item">ESP32</span><span class="mq-item">MQTT</span><span class="mq-item">Docker</span><span class="mq-item">Git</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
