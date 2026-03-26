@@ -69,11 +69,18 @@ h1{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.3rem);line-height:.95;l
 .step p{font-size:.88rem;color:var(--cm)}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.gallery-tab{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cm);border:1px solid var(--bdr);background:var(--s2);padding:10px 14px;cursor:pointer;transition:.2s}
+.gallery-tab:hover{color:var(--cream);border-color:var(--bdr-h);background:var(--s3)}
+.gallery-tab[aria-selected='true']{color:var(--cream);border-color:var(--bdr-h);background:var(--blue-dim)}
+.gallery-panel{display:none}
+.gallery-panel.is-active{display:grid}
 .shot{aspect-ratio:4/3;border:1px solid var(--bdr);background:linear-gradient(150deg,#111b28,#172031);position:relative;overflow:hidden;transform:translateY(16px);opacity:0;transition:opacity .8s,transform .8s,border-color .3s;cursor:zoom-in}
 .shot.on{transform:none;opacity:1}
 .shot:hover{border-color:var(--bdr-h)}
 .shot .t{position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
 .shot svg{width:100%;height:100%}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
 
 .impact{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
 .impact .i{background:var(--s2);border:1px solid var(--bdr);padding:20px}
@@ -234,14 +241,44 @@ footer{padding:44px 0 60px;color:var(--cd);font-family:var(--mono);font-size:.62
 <section class="sec wrap" id="gallery">
   <div class="head">Gallery</div>
   <h2 class="h2">Interface and system snapshots</h2>
-  <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Images &amp; screenshots are not available yet. Coming soon.</p>
-  <div class="gallery">
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="7" y="8" width="86" height="10" fill="#172031"/><rect x="7" y="22" width="38" height="42" fill="#172031"/><rect x="49" y="22" width="44" height="20" fill="#172031"/><rect x="49" y="46" width="44" height="18" fill="#172031"/></svg><div class="t">Owner app dashboard</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="10" y="10" width="80" height="55" fill="#172031"/><polyline points="14,55 28,40 42,44 56,31 72,34 86,24" fill="none" stroke="#1A56DB" stroke-width="2"/></svg><div class="t">Telemetry trend analysis</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="6" y="10" width="88" height="14" fill="#172031"/><rect x="6" y="28" width="88" height="37" fill="#172031"/><circle cx="55" cy="46" r="10" fill="none" stroke="#1A56DB"/><circle cx="55" cy="46" r="2" fill="#1A56DB"/></svg><div class="t">GPS risk context</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="8" width="84" height="59" fill="#172031"/><rect x="12" y="14" width="76" height="8" fill="#1A56DB" opacity=".3"/><rect x="12" y="28" width="30" height="34" fill="#111b28"/><rect x="46" y="28" width="42" height="15" fill="#111b28"/><rect x="46" y="47" width="42" height="15" fill="#111b28"/></svg><div class="t">VetLink patient page</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="12" y="14" width="76" height="47" fill="#172031"/><rect x="18" y="22" width="20" height="6" fill="#1A56DB" opacity=".5"/><rect x="18" y="32" width="64" height="4" fill="#ddd8cf" opacity=".25"/><rect x="18" y="40" width="54" height="4" fill="#ddd8cf" opacity=".2"/><rect x="18" y="48" width="44" height="4" fill="#ddd8cf" opacity=".2"/></svg><div class="t">Alert timeline and notes</div></article>
-    <article class="shot"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><rect width="100" height="75" fill="#111b28"/><rect x="8" y="10" width="84" height="55" fill="#172031"/><rect x="14" y="16" width="70" height="7" fill="#1A56DB" opacity=".35"/><rect x="14" y="28" width="24" height="30" fill="#111b28"/><rect x="42" y="28" width="24" height="30" fill="#111b28"/><rect x="70" y="28" width="14" height="30" fill="#111b28"/></svg><div class="t">Operational monitoring board</div></article>
+  <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Browse by product line: PawTracker mobile experience and VetLink veterinarian portal.</p>
+  <div class="gallery-tabs" role="tablist" aria-label="Project gallery categories">
+    <button class="gallery-tab" type="button" role="tab" id="tab-pawtracker" aria-controls="gallery-pawtracker" aria-selected="true" data-gallery-tab="pawtracker">PawTracker</button>
+    <button class="gallery-tab" type="button" role="tab" id="tab-vetlink" aria-controls="gallery-vetlink" aria-selected="false" data-gallery-tab="vetlink">VetLink (Vets)</button>
+  </div>
+  <div class="gallery gallery-panel is-active" id="gallery-pawtracker" role="tabpanel" aria-labelledby="tab-pawtracker" data-gallery-panel="pawtracker">
+    <article class="shot"><img src="assets/pt1.png" alt="PawTracker screen 1" loading="lazy"/><div class="t">PawTracker screen 01</div></article>
+    <article class="shot"><img src="assets/pt2.png" alt="PawTracker screen 2" loading="lazy"/><div class="t">PawTracker screen 02</div></article>
+    <article class="shot"><img src="assets/pt3.png" alt="PawTracker screen 3" loading="lazy"/><div class="t">PawTracker screen 03</div></article>
+    <article class="shot"><img src="assets/pt4.png" alt="PawTracker screen 4" loading="lazy"/><div class="t">PawTracker screen 04</div></article>
+    <article class="shot"><img src="assets/pt5.png" alt="PawTracker screen 5" loading="lazy"/><div class="t">PawTracker screen 05</div></article>
+    <article class="shot"><img src="assets/pt6.png" alt="PawTracker screen 6" loading="lazy"/><div class="t">PawTracker screen 06</div></article>
+    <article class="shot"><img src="assets/pt7.png" alt="PawTracker screen 7" loading="lazy"/><div class="t">PawTracker screen 07</div></article>
+    <article class="shot"><img src="assets/pt8.png" alt="PawTracker screen 8" loading="lazy"/><div class="t">PawTracker screen 08</div></article>
+    <article class="shot"><img src="assets/pt9.png" alt="PawTracker screen 9" loading="lazy"/><div class="t">PawTracker screen 09</div></article>
+    <article class="shot"><img src="assets/pt10.png" alt="PawTracker screen 10" loading="lazy"/><div class="t">PawTracker screen 10</div></article>
+    <article class="shot"><img src="assets/pt11.png" alt="PawTracker screen 11" loading="lazy"/><div class="t">PawTracker screen 11</div></article>
+    <article class="shot"><img src="assets/pt12.png" alt="PawTracker screen 12" loading="lazy"/><div class="t">PawTracker screen 12</div></article>
+    <article class="shot"><img src="assets/pt13.png" alt="PawTracker screen 13" loading="lazy"/><div class="t">PawTracker screen 13</div></article>
+    <article class="shot"><img src="assets/pt14.png" alt="PawTracker screen 14" loading="lazy"/><div class="t">PawTracker screen 14</div></article>
+  </div>
+  <div class="gallery gallery-panel" id="gallery-vetlink" role="tabpanel" aria-labelledby="tab-vetlink" data-gallery-panel="vetlink">
+    <article class="shot"><img src="assets/vt1.png" alt="VetLink screen 1" loading="lazy"/><div class="t">VetLink screen 01</div></article>
+    <article class="shot"><img src="assets/vt2.png" alt="VetLink screen 2" loading="lazy"/><div class="t">VetLink screen 02</div></article>
+    <article class="shot"><img src="assets/vt3.png" alt="VetLink screen 3" loading="lazy"/><div class="t">VetLink screen 03</div></article>
+    <article class="shot"><img src="assets/vt4.png" alt="VetLink screen 4" loading="lazy"/><div class="t">VetLink screen 04</div></article>
+    <article class="shot"><img src="assets/vt5.png" alt="VetLink screen 5" loading="lazy"/><div class="t">VetLink screen 05</div></article>
+    <article class="shot"><img src="assets/vt6.png" alt="VetLink screen 6" loading="lazy"/><div class="t">VetLink screen 06</div></article>
+    <article class="shot"><img src="assets/vt7.png" alt="VetLink screen 7" loading="lazy"/><div class="t">VetLink screen 07</div></article>
+    <article class="shot"><img src="assets/vt8.png" alt="VetLink screen 8" loading="lazy"/><div class="t">VetLink screen 08</div></article>
+    <article class="shot"><img src="assets/vt9.png" alt="VetLink screen 9" loading="lazy"/><div class="t">VetLink screen 09</div></article>
+    <article class="shot"><img src="assets/vt10.png" alt="VetLink screen 10" loading="lazy"/><div class="t">VetLink screen 10</div></article>
+    <article class="shot"><img src="assets/vt11.png" alt="VetLink screen 11" loading="lazy"/><div class="t">VetLink screen 11</div></article>
+    <article class="shot"><img src="assets/vt12.png" alt="VetLink screen 12" loading="lazy"/><div class="t">VetLink screen 12</div></article>
+    <article class="shot"><img src="assets/vt13.png" alt="VetLink screen 13" loading="lazy"/><div class="t">VetLink screen 13</div></article>
+    <article class="shot"><img src="assets/vt14.png" alt="VetLink screen 14" loading="lazy"/><div class="t">VetLink screen 14</div></article>
+    <article class="shot"><img src="assets/vt15.png" alt="VetLink screen 15" loading="lazy"/><div class="t">VetLink screen 15</div></article>
+    <article class="shot"><img src="assets/vt100.png" alt="VetLink screen 100" loading="lazy"/><div class="t">VetLink screen 100</div></article>
   </div>
 </section>
 
@@ -261,14 +298,51 @@ const io=new IntersectionObserver(entries=>{
 
 document.querySelectorAll('.reveal,.shot').forEach(el=>io.observe(el));
 
-const galleryItems=[...document.querySelectorAll('.gallery > article')];
-const gallerySources=galleryItems.map(item=>{
-  const img=item.querySelector('img');
-  if(img) return img.src;
-  const svg=item.querySelector('svg');
-  if(svg) return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));
-  return null;
-});
+const galleryTabs=[...document.querySelectorAll('[data-gallery-tab]')];
+const galleryPanels=[...document.querySelectorAll('[data-gallery-panel]')];
+let galleryItems=[];
+let gallerySources=[];
+
+function getActiveGalleryItems(){
+  return [...document.querySelectorAll('.gallery-panel.is-active .shot')];
+}
+
+function getGallerySources(items){
+  return items.map(item=>{
+    const img=item.querySelector('img');
+    if(img) return img.src;
+    const svg=item.querySelector('svg');
+    if(svg) return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));
+    return null;
+  });
+}
+
+function bindGalleryClicks(){
+  galleryItems.forEach((item,i)=>{
+    item.onclick=()=>openLightbox(i);
+  });
+}
+
+function refreshGalleryState(){
+  galleryItems=getActiveGalleryItems();
+  gallerySources=getGallerySources(galleryItems);
+  bindGalleryClicks();
+}
+
+function switchGalleryTab(tabName){
+  galleryTabs.forEach(tab=>{
+    const active=tab.dataset.galleryTab===tabName;
+    tab.setAttribute('aria-selected',String(active));
+  });
+  galleryPanels.forEach(panel=>{
+    panel.classList.toggle('is-active',panel.dataset.galleryPanel===tabName);
+  });
+  refreshGalleryState();
+}
+
+galleryTabs.forEach(tab=>tab.addEventListener('click',()=>switchGalleryTab(tab.dataset.galleryTab)));
+refreshGalleryState();
+
 const lightbox=document.getElementById('lightbox');
 const lightboxImage=document.getElementById('lightboxImage');
 const closeBtn=lightbox.querySelector('.lb-close');
@@ -278,7 +352,6 @@ let activeIndex=0;
 function openLightbox(i){if(!gallerySources[i]) return;activeIndex=i;lightboxImage.src=gallerySources[activeIndex];lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');}
 function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.removeAttribute('src');}
 function moveLightbox(dir){if(!gallerySources.length) return;let next=(activeIndex+dir+gallerySources.length)%gallerySources.length;while(!gallerySources[next]&&next!==activeIndex){next=(next+dir+gallerySources.length)%gallerySources.length;}activeIndex=next;if(gallerySources[activeIndex]) lightboxImage.src=gallerySources[activeIndex];}
-galleryItems.forEach((item,i)=>item.addEventListener('click',()=>openLightbox(i)));
 closeBtn.addEventListener('click',closeLightbox);
 prevBtn.addEventListener('click',()=>moveLightbox(-1));
 nextBtn.addEventListener('click',()=>moveLightbox(1));
