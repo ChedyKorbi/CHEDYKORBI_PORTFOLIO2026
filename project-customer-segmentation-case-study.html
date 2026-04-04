@@ -50,14 +50,24 @@ h1{font-family:var(--serif);font-size:clamp(2.2rem,5.9vw,4.8rem);line-height:.95
 .mini h4{font-family:var(--serif);font-size:1rem;margin-bottom:8px}
 .mini p{color:var(--cm);font-size:.9rem}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.g{background:var(--s2);border:1px solid var(--bd);padding:8px}
+.g{background:var(--s2);border:1px solid var(--bd);padding:8px;cursor:zoom-in}
 .g img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:4px}
 .g span{display:block;margin-top:6px;font-family:var(--mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--cd)}
 .reveal{opacity:0;transform:translateY(18px);transition:.7s}
 .reveal.on{opacity:1;transform:none}
+
+.lightbox{position:fixed;inset:0;display:none;z-index:9999;background:rgba(8,12,18,.92);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,92vw);max-height:82vh;border-radius:12px;border:1px solid var(--bd);box-shadow:0 20px 60px rgba(0,0,0,.45);background:#000;object-fit:contain}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;border:1px solid var(--bd);background:rgba(12,21,32,.85);color:var(--cr);font-size:28px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.lb-btn:hover{background:rgba(18,30,45,.95)}
+.lb-prev{left:18px}
+.lb-next{right:18px}
+.lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid var(--bd);background:rgba(12,21,32,.85);color:var(--cr);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+
 footer{padding:36px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cd)}
 @media(max-width:980px){.stats,.grid2,.grid3,.grid4,.gallery{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){nav{padding:10px 12px;flex-direction:column;align-items:stretch}.links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.links a{text-align:center}.wrap{padding:0 12px}.stats,.grid2,.grid3,.grid4,.gallery{grid-template-columns:1fr}.card,.kpi,.mini{padding:16px}.hero{padding-top:36px}}
+@media(max-width:700px){nav{padding:10px 12px;flex-direction:column;align-items:stretch}.links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.links a{text-align:center}.wrap{padding:0 12px}.stats,.grid2,.grid3,.grid4,.gallery{grid-template-columns:1fr}.card,.kpi,.mini{padding:16px}.hero{padding-top:36px}.lb-btn{width:40px;height:40px;font-size:22px}.lb-prev{left:8px}.lb-next{right:8px}}
 </style>
 </head>
 <body>
@@ -133,8 +143,21 @@ footer{padding:36px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
         <li>Histogram/KDE baselines for skew and tail behavior.</li>
         <li>Triangular correlation heatmap for pairwise redundancy analysis.</li>
         <li>Outlier boxplots and before/after log transformation checks.</li>
+        <li>Elbow vs silhouette tradeoff curves for K selection.</li>
+        <li>PCA cluster projection and silhouette-by-cluster diagnostics.</li>
+        <li>Persona radar, value-volume matrix, and revenue contribution views.</li>
       </ul>
     </article>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>EDA and communication visuals explicitly delivered</h3>
+    <ul class="list">
+      <li>01_numeric_histogram_kde_baseline.png and 02_log_transform_before_after.png.</li>
+      <li>03_triangular_correlation_heatmap.png and 04_elbow_silhouette_tradeoff.png.</li>
+      <li>05_pca_cluster_projection.png and 10_silhouette_per_cluster.png.</li>
+      <li>06_radar_champions_vs_atrisk.png, 07_revenue_contribution_donut.png, 08_rfm_boxplots_by_cluster.png.</li>
+      <li>09_pca_cluster_scatter.png, 11_segment_profile_radar.png, 12_value_volume_matrix.png.</li>
+    </ul>
   </div>
 </section>
 
@@ -203,11 +226,39 @@ footer{padding:36px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
 <section class="wrap sec reveal">
   <div class="tag">Deployed Personas</div>
   <h2 class="h2">4 operational segments for marketing teams</h2>
-  <div class="grid4">
-    <article class="mini"><h4>Champions</h4><p>36.4% of customers, 74.9% of revenue. Focus: loyalty rewards, early access, referral expansion.</p></article>
-    <article class="mini"><h4>At-Risk Loyalists</h4><p>16.4% of customers, 6.5% of revenue. Focus: retention and personalized win-back campaigns.</p></article>
-    <article class="mini"><h4>Potential Growth</h4><p>35.9% of customers, 16.9% of revenue. Focus: upsell bundles and progressive incentives.</p></article>
-    <article class="mini"><h4>New / Passive</h4><p>11.3% of customers, 1.7% of revenue. Focus: activation journeys and first-repeat purchase nudges.</p></article>
+  <div class="grid2">
+    <article class="card">
+      <h3>Champions</h3>
+      <ul class="list">
+        <li>High frequency, high spend, recent activity.</li>
+        <li>Why it matters: they drive revenue and advocacy.</li>
+        <li>Action: loyalty, VIP perks, referrals, and early access campaigns.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>At-Risk Loyalists</h3>
+      <ul class="list">
+        <li>Historically valuable customers with declining recency and engagement.</li>
+        <li>Why it matters: high-risk revenue leakage if not recovered.</li>
+        <li>Action: win-back offers, personalized reminders, and support follow-up.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Potential Growth</h3>
+      <ul class="list">
+        <li>Moderate value customers with strong upsell potential.</li>
+        <li>Why it matters: best segment to grow into future Champions.</li>
+        <li>Action: cross-sell bundles, progressive incentives, and education journeys.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>New or Passive</h3>
+      <ul class="list">
+        <li>Low frequency or early-stage and low-engagement customers.</li>
+        <li>Why it matters: biggest activation opportunity at top of funnel.</li>
+        <li>Action: onboarding flows, first-to-second purchase nudges, and low-friction offers.</li>
+      </ul>
+    </article>
   </div>
 </section>
 
@@ -233,6 +284,16 @@ footer{padding:36px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
         <li>Model and scaler artifacts mounted consistently for reliable inference geometry.</li>
       </ul>
     </article>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Decision-ready explainability and guidance layer</h3>
+    <ul class="list">
+      <li>Executive Brief: plain-language summary of who the customer is and what to do next.</li>
+      <li>Why This Segment: key behavioral drivers behind the assignment.</li>
+      <li>Campaign Playbook: objective, channels, cadence, and KPI suggestions.</li>
+      <li>Confidence and Distances: confidence band plus distance-to-cluster transparency.</li>
+      <li>Raw Technical View: transformed features and full model output for analyst validation.</li>
+    </ul>
   </div>
   <div class="card" style="margin-top:12px">
     <h3>Runbook</h3>
@@ -301,16 +362,69 @@ docker compose up --build</div>
   </div>
 </section>
 
+<div class="lightbox" id="lightbox" aria-hidden="true"><button class="lb-close" type="button" aria-label="Close">&times;</button><button class="lb-btn lb-prev" type="button" aria-label="Previous">&#8249;</button><img id="lightboxImage" alt="Expanded gallery visual"/><button class="lb-btn lb-next" type="button" aria-label="Next">&#8250;</button></div>
+
 <footer class="wrap">Customer segmentation MLOps case study - Chedy Korbi</footer>
 
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.gallery img').forEach(img=>{
+
+const galleryItems=[...document.querySelectorAll('.gallery > article')];
+const gallerySources=[];
+
+galleryItems.forEach(item=>{
+  const img=item.querySelector('img');
+  if(!img){gallerySources.push(null);return;}
+  gallerySources.push(img.src);
   img.addEventListener('error',()=>{
-    const card=img.closest('.g');
-    if(card) card.style.display='none';
+    item.style.display='none';
+    const idx=galleryItems.indexOf(item);
+    if(idx>=0) gallerySources[idx]=null;
   });
+});
+
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=document.getElementById('lightboxImage');
+const closeBtn=lightbox.querySelector('.lb-close');
+const prevBtn=lightbox.querySelector('.lb-prev');
+const nextBtn=lightbox.querySelector('.lb-next');
+let activeIndex=0;
+
+function openLightbox(i){
+  if(!gallerySources[i]) return;
+  activeIndex=i;
+  lightboxImage.src=gallerySources[activeIndex];
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden','false');
+}
+
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden','true');
+  lightboxImage.removeAttribute('src');
+}
+
+function moveLightbox(dir){
+  if(!gallerySources.length) return;
+  let next=(activeIndex+dir+gallerySources.length)%gallerySources.length;
+  while(!gallerySources[next]&&next!==activeIndex){
+    next=(next+dir+gallerySources.length)%gallerySources.length;
+  }
+  activeIndex=next;
+  if(gallerySources[activeIndex]) lightboxImage.src=gallerySources[activeIndex];
+}
+
+galleryItems.forEach((item,i)=>item.addEventListener('click',()=>openLightbox(i)));
+closeBtn.addEventListener('click',closeLightbox);
+prevBtn.addEventListener('click',()=>moveLightbox(-1));
+nextBtn.addEventListener('click',()=>moveLightbox(1));
+lightbox.addEventListener('click',e=>{if(e.target===lightbox) closeLightbox();});
+window.addEventListener('keydown',e=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') moveLightbox(-1);
+  if(e.key==='ArrowRight') moveLightbox(1);
 });
 </script>
 </body>
