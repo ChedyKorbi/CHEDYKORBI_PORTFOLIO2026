@@ -71,7 +71,7 @@ footer{padding:36px 0 56px;font-family:var(--mono);font-size:.62rem;letter-spaci
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="brand">Chedy<span>.</span></a><div class="links"><a href="index.html">Back Home</a><a href="#problem">Problem</a><a href="#pipeline">Pipeline</a><a href="#modeling">Modeling</a><a href="#mlops">MLOps</a><a href="#gallery">Gallery</a></div></nav>
+<nav><a href="index.html" class="brand">Chedy<span>.</span></a><div class="links"><a href="index.html">Back Home</a><a href="#problem">Problem</a><a href="#pipeline">Pipeline</a><a href="#modeling">Modeling</a><a href="#mlops">MLOps</a><a href="#tools">Tools</a><a href="#gallery">Gallery</a></div></nav>
 <div class="case-cover"></div>
 
 <header class="wrap hero reveal">
@@ -316,6 +316,46 @@ docker compose up --build</div>
     <article class="card"><h3>Data + Models</h3><ul class="list"><li>data/processed/rfm_clean.csv</li><li>data/processed/rfm_clustered_phase3.csv</li><li>outputs/models/kmeans_phase3_model.pkl</li><li>outputs/models/phase3_standard_scaler.pkl</li></ul></article>
     <article class="card"><h3>Reports + Visuals</h3><ul class="list"><li>KMeans/DBSCAN/Agglomerative/GMM grid reports</li><li>Bootstrap stability and model comparison summary</li><li>Phase 4 persona visuals and strategy table</li><li>kmeans_k4_validation_metrics.csv</li></ul></article>
     <article class="card"><h3>Documentation</h3><ul class="list"><li>EDA report and modeling technical report</li><li>MLOPS_DEPLOYMENT_GUIDE.md</li><li>Marketing AI Lab PRD and blueprint docs</li><li>Retraining script and API/service schemas</li></ul></article>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="tools">
+  <div class="tag">Tools Used</div>
+  <h2 class="h2">Languages, libraries, frameworks, and platform stack</h2>
+  <div class="grid2">
+    <article class="card">
+      <h3>Languages + Core Environment</h3>
+      <ul class="list">
+        <li>Python (end-to-end data, modeling, API, and app implementation).</li>
+        <li>Jupyter Notebooks for EDA, ETL, modeling, and phase-4 analytics communication.</li>
+        <li>CSV, Excel, and Pickle artifacts for dataset exchange and model/scaler persistence.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Data Science + ML Libraries</h3>
+      <ul class="list">
+        <li>Pandas and NumPy for data manipulation, aggregation, and feature preparation.</li>
+        <li>Scikit-learn for preprocessing, clustering algorithms, metrics, and validation.</li>
+        <li>StandardScaler, KMeans, DBSCAN, Agglomerative, and Gaussian Mixture workflows.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Visualization + Reporting</h3>
+      <ul class="list">
+        <li>Matplotlib and Seaborn style workflows for distribution, correlation, and cluster diagnostics.</li>
+        <li>PCA projection and silhouette diagnostics for model interpretability.</li>
+        <li>Structured report exports to outputs/reports and outputs/figures artifacts.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Serving + MLOps + Product Layer</h3>
+      <ul class="list">
+        <li>FastAPI serving layer with schema-driven request/response contracts.</li>
+        <li>Streamlit marketer interface for single and batch decision workflows.</li>
+        <li>Docker + Docker Compose for reproducible API/UI deployment.</li>
+        <li>Git/GitHub workflow for versioning and release delivery.</li>
+      </ul>
+    </article>
   </div>
 </section>
 
