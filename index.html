@@ -243,7 +243,7 @@ section{padding:112px 52px;position:relative;}
 .edu-logo.pi{background:transparent;filter:none;}
 .edu-det{font-size:.88rem;color:var(--cm);line-height:1.65;}
 .edu-gpa{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--blue);margin-top:14px;display:block;}
-.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;}
 .cert{background:var(--s2);border:1px solid var(--bdr);padding:28px;transition:background .3s,border-color .3s,transform .3s;}
 .cert:hover{background:var(--s3);border-color:var(--bdr-h);transform:translateY(-3px);}
 .cert-org{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
@@ -827,17 +827,27 @@ section{padding:112px 52px;position:relative;}
       </div>
     </div>
     <div class="certs">
-      <div class="cert rv d1">
+      <a href="https://www.udacity.com/certificate/e/4e82d18c-33fa-11f1-a5b9-d3f767d93ed1" target="_blank" class="cert rv d1" style="text-decoration:none;cursor:pointer;">
+        <div class="cert-org">Udacity · AWS Scholars</div>
+        <div class="cert-nm">AWS AI Practitioner Challenge</div>
+        <div class="cert-dt">May 20, 2026 · Verified</div>
+      </a>
+      <a href="https://www.credly.com/badges/1c300e08-f07b-4241-9514-ff8c1323ae46" target="_blank" class="cert rv d2" style="text-decoration:none;cursor:pointer;">
+        <div class="cert-org">ITS JavaScript</div>
+        <div class="cert-nm">JavaScript Certification</div>
+        <div class="cert-dt">Professional · Verified</div>
+      </a>
+      <div class="cert rv d3">
         <div class="cert-org">Samsung Innovation Campus</div>
         <div class="cert-nm">AI & Machine Learning</div>
         <div class="cert-dt">10-week programme · 95.5% capstone · 4th place</div>
       </div>
-      <div class="cert rv d2">
+      <div class="cert rv d4">
         <div class="cert-org">Coursera · Stanford / DeepLearning.AI</div>
         <div class="cert-nm">Machine Learning Specialization</div>
         <div class="cert-dt">Andrew Ng · In progress</div>
       </div>
-      <div class="cert rv d3">
+      <div class="cert rv d5">
         <div class="cert-org">PHPoC South Korea · ISET Charguia</div>
         <div class="cert-nm">63H IoT PHPoC Certification</div>
         <div class="cert-dt">IoT programming · Completed</div>
