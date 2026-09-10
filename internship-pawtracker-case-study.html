@@ -7,23 +7,23 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --blue:#1A56DB;--blue-lt:#5b8ef5;--blue-dim:rgba(26,86,219,.11);
-  --cream:#ddd8cf;--cm:rgba(221,216,207,.62);--cd:rgba(221,216,207,.36);
-  --ink:#070e18;--s1:#0c1520;--s2:#111b28;--s3:#172031;
-  --bdr:rgba(221,216,207,.09);--bdr-h:rgba(26,86,219,.32);
-  --mono:'DM Mono',monospace;--serif:'Fraunces',serif;--sans:'Instrument Sans',sans-serif;
+  --blue:#C9A227;--blue-lt:#E3C766;--blue-dim:rgba(201,162,39,.11);
+  --cream:#F5F5F0;--cm:rgba(245,245,240,.62);--cd:rgba(245,245,240,.36);
+  --ink:#0A0A0A;--s1:#0E0E0E;--s2:#121212;--s3:#161616;
+  --bdr:rgba(245,245,240,.09);--bdr-h:rgba(201,162,39,.32);
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;--serif:'Helvetica Neue',Helvetica,Arial,sans-serif;--sans:'Questrial','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--cream);font-family:var(--sans);line-height:1.74;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
- radial-gradient(circle at 12% -10%,rgba(26,86,219,.24),transparent 48%),
- radial-gradient(circle at 90% 10%,rgba(26,86,219,.12),transparent 54%);z-index:-2}
+ radial-gradient(circle at 12% -10%,rgba(201,162,39,.24),transparent 48%),
+ radial-gradient(circle at 90% 10%,rgba(201,162,39,.12),transparent 54%);z-index:-2}
 
-nav{position:sticky;top:0;z-index:10;background:rgba(7,14,24,.92);backdrop-filter:blur(15px);border-bottom:1px solid var(--bdr);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+nav{position:sticky;top:0;z-index:10;background:rgba(10,10,10,.92);backdrop-filter:blur(15px);border-bottom:1px solid var(--bdr);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
 .brand{font-family:var(--serif);text-decoration:none;color:var(--cream);font-weight:700}
 .brand i{font-style:normal;color:var(--blue)}
 .nav-set{display:flex;gap:10px;flex-wrap:wrap}
@@ -72,7 +72,7 @@ h1{font-family:var(--serif);font-size:clamp(2.3rem,5.8vw,5rem);line-height:.95;l
 .k span{font-family:var(--mono);font-size:.61rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cd)}
 
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.g{aspect-ratio:1/1;border:1px solid var(--bdr);background:linear-gradient(150deg,#111b28,#172031);position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s,border-color .3s;cursor:zoom-in}
+.g{aspect-ratio:1/1;border:1px solid var(--bdr);background:linear-gradient(150deg,#121212,#161616);position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s,border-color .3s;cursor:zoom-in}
 .g.on{opacity:1;transform:none}
 .g:hover{border-color:var(--bdr-h)}
 .g span{position:absolute;left:9px;bottom:8px;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
@@ -82,14 +82,14 @@ h1{font-family:var(--serif);font-size:clamp(2.3rem,5.8vw,5rem);line-height:.95;l
 .reveal.on{opacity:1;transform:none}
 footer{padding:40px 0 60px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cd)}
 
-.lightbox{position:fixed;inset:0;display:none;z-index:9999;background:rgba(8,12,18,.92);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:24px}
+.lightbox{position:fixed;inset:0;display:none;z-index:9999;background:rgba(10,10,10,.92);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:24px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:min(1100px,92vw);max-height:82vh;border-radius:12px;border:1px solid var(--bdr);box-shadow:0 20px 60px rgba(0,0,0,.45);background:#000;object-fit:contain}
-.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;border:1px solid var(--bdr);background:rgba(12,21,32,.85);color:var(--cream);font-size:28px;line-height:1;display:grid;place-items:center;cursor:pointer}
-.lb-btn:hover{background:rgba(18,30,45,.95)}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;border:1px solid var(--bdr);background:rgba(14,14,14,.85);color:var(--cream);font-size:28px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.lb-btn:hover{background:rgba(18,18,18,.95)}
 .lb-prev{left:18px}
 .lb-next{right:18px}
-.lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid var(--bdr);background:rgba(12,21,32,.85);color:var(--cream);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid var(--bdr);background:rgba(14,14,14,.85);color:var(--cream);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer}
 
 @media(max-width:980px){
   nav{padding:12px 14px;align-items:flex-start;gap:10px}
@@ -234,14 +234,14 @@ footer{padding:40px 0 60px;font-family:var(--mono);font-size:.62rem;letter-spaci
   <h2 class="h2">Implementation snapshots</h2>
   <p style="color:var(--cd);font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin:-8px 0 14px">Images &amp; screenshots are not available yet. Coming soon.</p>
   <div class="gallery">
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="8" y="8" width="84" height="16" fill="#172031"/><rect x="8" y="28" width="40" height="64" fill="#172031"/><rect x="52" y="28" width="40" height="30" fill="#172031"/><rect x="52" y="62" width="40" height="30" fill="#172031"/></svg><span>Requirements board</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="12" y="16" width="76" height="68" fill="#172031"/><polyline points="16,72 32,55 48,60 64,46 80,40" fill="none" stroke="#1A56DB" stroke-width="2"/></svg><span>Telemetry validation</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="22" y="8" width="56" height="84" fill="#172031"/><rect x="28" y="16" width="44" height="8" fill="#1A56DB" opacity=".35"/><rect x="28" y="30" width="44" height="50" fill="#111b28"/></svg><span>Android app sprint</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="8" y="12" width="84" height="76" fill="#172031"/><rect x="14" y="18" width="70" height="8" fill="#1A56DB" opacity=".3"/><rect x="14" y="34" width="70" height="10" fill="#111b28"/><rect x="14" y="48" width="70" height="10" fill="#111b28"/><rect x="14" y="62" width="70" height="10" fill="#111b28"/></svg><span>VetLink module</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="10" y="10" width="80" height="80" fill="#172031"/><circle cx="50" cy="50" r="14" fill="none" stroke="#1A56DB" stroke-width="2"/><circle cx="50" cy="50" r="2" fill="#1A56DB"/></svg><span>GPS workflow</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="12" y="20" width="76" height="60" fill="#172031"/><rect x="18" y="28" width="24" height="44" fill="#111b28"/><rect x="46" y="28" width="36" height="10" fill="#111b28"/><rect x="46" y="42" width="36" height="10" fill="#111b28"/><rect x="46" y="56" width="36" height="10" fill="#111b28"/></svg><span>Delivery review</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="6" y="6" width="88" height="88" fill="#172031"/><rect x="12" y="12" width="76" height="10" fill="#1A56DB" opacity=".25"/><rect x="12" y="30" width="76" height="56" fill="#111b28"/></svg><span>Testing checklist</span></article>
-    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#111b28"/><rect x="16" y="16" width="68" height="68" fill="#172031"/><rect x="24" y="26" width="52" height="8" fill="#ddd8cf" opacity=".2"/><rect x="24" y="40" width="52" height="6" fill="#ddd8cf" opacity=".18"/><rect x="24" y="52" width="52" height="6" fill="#ddd8cf" opacity=".18"/><rect x="24" y="64" width="30" height="10" fill="#1A56DB" opacity=".3"/></svg><span>Handoff documents</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="8" y="8" width="84" height="16" fill="#161616"/><rect x="8" y="28" width="40" height="64" fill="#161616"/><rect x="52" y="28" width="40" height="30" fill="#161616"/><rect x="52" y="62" width="40" height="30" fill="#161616"/></svg><span>Requirements board</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="12" y="16" width="76" height="68" fill="#161616"/><polyline points="16,72 32,55 48,60 64,46 80,40" fill="none" stroke="#C9A227" stroke-width="2"/></svg><span>Telemetry validation</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="22" y="8" width="56" height="84" fill="#161616"/><rect x="28" y="16" width="44" height="8" fill="#C9A227" opacity=".35"/><rect x="28" y="30" width="44" height="50" fill="#121212"/></svg><span>Android app sprint</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="8" y="12" width="84" height="76" fill="#161616"/><rect x="14" y="18" width="70" height="8" fill="#C9A227" opacity=".3"/><rect x="14" y="34" width="70" height="10" fill="#121212"/><rect x="14" y="48" width="70" height="10" fill="#121212"/><rect x="14" y="62" width="70" height="10" fill="#121212"/></svg><span>VetLink module</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="10" y="10" width="80" height="80" fill="#161616"/><circle cx="50" cy="50" r="14" fill="none" stroke="#C9A227" stroke-width="2"/><circle cx="50" cy="50" r="2" fill="#C9A227"/></svg><span>GPS workflow</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="12" y="20" width="76" height="60" fill="#161616"/><rect x="18" y="28" width="24" height="44" fill="#121212"/><rect x="46" y="28" width="36" height="10" fill="#121212"/><rect x="46" y="42" width="36" height="10" fill="#121212"/><rect x="46" y="56" width="36" height="10" fill="#121212"/></svg><span>Delivery review</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="6" y="6" width="88" height="88" fill="#161616"/><rect x="12" y="12" width="76" height="10" fill="#C9A227" opacity=".25"/><rect x="12" y="30" width="76" height="56" fill="#121212"/></svg><span>Testing checklist</span></article>
+    <article class="g"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="#121212"/><rect x="16" y="16" width="68" height="68" fill="#161616"/><rect x="24" y="26" width="52" height="8" fill="#F5F5F0" opacity=".2"/><rect x="24" y="40" width="52" height="6" fill="#F5F5F0" opacity=".18"/><rect x="24" y="52" width="52" height="6" fill="#F5F5F0" opacity=".18"/><rect x="24" y="64" width="30" height="10" fill="#C9A227" opacity=".3"/></svg><span>Handoff documents</span></article>
   </div>
 </section>
 
