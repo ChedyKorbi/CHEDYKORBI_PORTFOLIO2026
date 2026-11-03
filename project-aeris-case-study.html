@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="theme-color" content="#040507"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AERIS — Chedy Korbi</title>
+<meta name="description" content="AERIS: a research prototype that gathers the evidence on patients with breathing problems and adds AI second opinions, with every decision left to a clinician."/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/case-base.css"/>
+<link rel="stylesheet" href="assets/css/case.css"/>
+<style>:root{--tint:#53c2ff}.cs-lead{max-width:68ch;font-size:clamp(1.125rem,1rem + .5vw,1.4rem);line-height:1.5;color:#dde2e8;margin-bottom:16px}</style>
+<script src="assets/js/case.js" defer></script>
+</head>
+<body>
+<nav><a href="index.html" class="brand">Chedy Korbi</a><div class="links"><a href="index.html#work">Back to work</a><a href="#parts">System</a><a href="#modules">Modules</a><a href="#audio">Audio model</a></div></nav>
+<main>
+<div class="case-cover" style="background-image:url('assets/aeris/hero.jpg')" aria-hidden="true"></div>
+<header class="wrap hero reveal"><div class="ey">Clinical AI · research prototype · in progress</div><h1>AERIS</h1><p>A research prototype that helps a hospital care team handle patients arriving with breathing problems. It gathers the evidence (chest X-ray, lung sounds, clinical notes, vital signs, symptoms) in one place, adds AI second opinions on each, and leaves every decision to a clinician.</p><div class="stats"><article class="st"><strong>0.89</strong><span>AUROC, heart-disease risk, locked test</span></article><article class="st"><strong>5</strong><span>kinds of evidence in one record</span></article><article class="st"><strong>4</strong><span>sound classes per breath</span></article><article class="st"><strong>0</strong><span>AI outputs reaching a patient unapproved</span></article></div></header>
+<section class="wrap sec reveal" id="parts"><div class="tag">The parts</div><h2 class="h2">Three layers, one rule</h2><div class="grid3"><article class="mini"><b>Web app · Next.js</b><p>Clinician and patient screens. The clinician reviews every AI result and accepts or overrides it.</p></article><article class="mini"><b>Backend API · Spring Boot</b><p>Logins, permissions, records, the audit trail and the job queue. The original model output is never rewritten.</p></article><article class="mini"><b>AI workers · Python</b><p>One model per kind of evidence. Each returns a result with its confidence and quality warnings.</p></article></div></section>
+<section class="wrap sec reveal"><figure class="cs-figure"><img src="assets/aeris/signals.jpg" alt="AERIS: four signals, one picture. Imaging, clinical notes, lung sounds and vital signs" loading="lazy"/><figcaption>Four streams of evidence, one view: imaging, clinical notes, lung sounds and vital signs</figcaption></figure></section>
+<section class="wrap sec reveal"><div class="tag">The clinician view</div><h2 class="h2">Flag the sound, leave the diagnosis</h2><div class="cs-ui" style="--tint:#53c2ff"><div class="ui" data-ui role="img" aria-label="AERIS lung-sound review: a recording split into breaths, each labelled with a sound class and confidence, with accept and override controls">
+                <div class="ui-bar"><b>Lung sounds · bed 4</b><span>Awaiting clinician</span></div>
+                <div class="ui-card">
+                  <div class="ui-row"><span>Recording, left lower lobe</span><span>18.6 s · 6 breaths</span></div>
+                  <div class="breaths">
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 Q10 12 20 30 T40 30 T60 30 T80 30 T100 30" stroke="#53c2ff" stroke-width="2" fill="none"/></svg><span>Normal 0.91</span></div>
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 L8 18 L12 40 L18 10 L24 46 L30 22 L38 34 L46 14 L54 44 L62 26 L70 36 L80 20 L90 40 L100 30" stroke="#ff9f5a" stroke-width="2" fill="none"/></svg><span>Crackles 0.74</span></div>
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 Q5 20 10 30 T20 30 T30 30 T40 30 T50 30 T60 30 T70 30 T80 30 T90 30 T100 30" stroke="#f5c451" stroke-width="2" fill="none"/></svg><span>Wheezes 0.68</span></div>
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 Q10 14 20 30 T40 30 T60 30 T80 30 T100 30" stroke="#53c2ff" stroke-width="2" fill="none"/></svg><span>Normal 0.88</span></div>
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 L6 22 L10 38 L16 16 Q26 6 34 30 T54 30 L60 18 L66 42 Q76 10 86 30 T100 30" stroke="#ff6b8b" stroke-width="2" fill="none"/></svg><span>Both 0.52</span></div>
+                    <div class="breath"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M0 30 Q12 26 24 30 T48 30 T72 30 T100 30" stroke="#6f7782" stroke-width="2" fill="none"/></svg><span>Too quiet</span></div>
+                  </div>
+                </div>
+                <div class="ui-grid">
+                  <div class="ui-card">
+                    <div class="ui-row"><span>Model note</span><span class="ui-tag" style="--c:#53c2ff">Sound, not a diagnosis</span></div>
+                    <ul class="ui-list"><li><span>Breath 6 below amplitude gate</span><span>re-record</span></li><li><span>Original output kept on override</span><span>audit</span></li></ul>
+                  </div>
+                  <div class="ui-card hide-sm">
+                    <div class="ui-row"><span>Clinician</span></div>
+                    <div class="ui-btns" style="margin-top:12px"><span>Accept</span><span>Override</span><span>Listen</span></div>
+                  </div>
+                </div>
+                <p class="ui-foot">Interface sketch with sample data · the audio model is still in training</p>
+              </div></div></section>
+<section class="wrap sec reveal" id="modules"><div class="tag">The AI modules</div><h2 class="h2">One question each</h2><div class="cs-table-wrap"><table class="cs-table"><thead><tr><th scope="col">Module</th><th scope="col">Question it answers</th><th scope="col">Status</th></tr></thead><tbody><tr><td>M3 Heart-disease risk</td><td>From routine data (age, blood pressure, cholesterol), what is this person’s risk?</td><td>Done through the final test: AUROC 0.89 on locked data. Next: explanations and a fairness check</td></tr><tr><td>Respiratory audio</td><td>In this breath, are there crackles, wheezes, both, or nothing abnormal?</td><td>Training now (phase 10)</td></tr><tr><td>M2 NLP / RAG assistant</td><td>Pull key facts from notes and answer with citations to GOLD, GINA, pneumonia and sepsis guidelines</td><td>Planned; platform storage ready</td></tr><tr><td>M1 Chest X-ray vision</td><td>Which findings are on this X-ray, with a heatmap of where it looked?</td><td>Planned; dataset access needed</td></tr><tr><td>M4 ICU risk</td><td>Will this patient need the ICU within 24 h, or be readmitted within 30 days?</td><td>Planned; MIMIC-IV needs credentials</td></tr><tr><td>M5 Serving + fusion</td><td>Run all models as services and combine them, showing gaps and disagreement</td><td>Last, once two modules are validated</td></tr></tbody></table></div></section>
+<section class="wrap sec reveal" id="audio"><div class="tag">The audio model</div><h2 class="h2">A wheeze is a sound, not a disease</h2><div class="grid2"><article class="card"><h3>How it works</h3><ul class="list"><li>A clinician records the chest with a digital stethoscope.</li><li>The backend checks permissions and queues a job.</li><li>The recording is cut into breaths; each is labelled normal, crackles, wheezes or both, with confidence and quality warnings (too quiet, bad file).</li><li>The clinician listens and accepts or overrides; the original output is kept.</li><li>Later, fusion combines it with the X-ray, notes and vitals.</li></ul></article><article class="card"><h3>Where it stands</h3><ul class="list"><li>Phases 1–8, data checks and simple models: best score about 0.50, no better than always saying “normal”.</li><li>Phase 9, borrowing a children’s lung-sound dataset: made things worse (about 0.14). Documented and closed.</li><li>Phase 10, now: the Audio Spectrogram Transformer, pretrained on 2 million YouTube sounds. Wiring check 0.53; full training running.</li><li>Target 0.58–0.62, what honest published work reaches on this dataset.</li></ul></article></div><p class="cs-note">AERIS is a research prototype. No model diagnoses anyone, and the interface shown is a sketch with sample data.</p></section>
+<div class="wrap"><a class="cs-next" href="project-groundeddocs-case-study.html"><span><small>Next project</small><b>GroundedDocs</b></span><i aria-hidden="true">→</i></a></div>
+</main>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer"><button class="lb-close" type="button" aria-label="Close">&times;</button><button class="lb-btn lb-prev" type="button" aria-label="Previous image">&#8249;</button><img alt=""/><button class="lb-btn lb-next" type="button" aria-label="Next image">&#8250;</button></div>
+<footer class="wrap">AERIS · case study by Chedy Korbi · <a href="index.html">Portfolio home</a></footer>
+</body>
+</html>

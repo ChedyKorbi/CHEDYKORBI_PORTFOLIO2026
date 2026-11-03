@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="theme-color" content="#040507"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FinSight AI — Chedy Korbi</title>
+<meta name="description" content="FinSight AI: six calibrated models for fraud, anomaly, credit, forecast, categorisation and segmentation, plus a four-level LLM layer that explains evidence without computing numbers."/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/case-base.css"/>
+<link rel="stylesheet" href="assets/css/case.css"/>
+<style>:root{--tint:#2fd3a0}.cs-lead{max-width:68ch;font-size:clamp(1.125rem,1rem + .5vw,1.4rem);line-height:1.5;color:#dde2e8;margin-bottom:16px}</style>
+<script src="assets/js/case.js" defer></script>
+</head>
+<body>
+<nav><a href="index.html" class="brand">Chedy Korbi</a><div class="links"><a href="index.html#work">Back to work</a><a href="#problem">Problem</a><a href="#models">Models</a><a href="#results">Results</a><a href="#lesson">Shadow story</a></div></nav>
+<main>
+
+<header class="wrap hero reveal"><div class="ey">Fintech · Lead AI/ML engineer · data, models, evaluation, serving and the LLM layer</div><h1>FinSight AI</h1><p>An AI-native financial intelligence platform that turns transactions, loans and company cash flow into calibrated predictions and evidence-backed explanations. The backend keeps the money, the models keep the uncertainty, and a human keeps the decision.</p><div class="stats"><article class="st"><strong>0.866</strong><span>PR-AUC, ULB fraud benchmark</span></article><article class="st"><strong>0.81</strong><span>AUC, credit scorecard with exact reason codes</span></article><article class="st"><strong>27%</strong><span>WAPE gain over seasonal-naive forecast</span></article><article class="st"><strong>213</strong><span>backend tests, 47 enterprise endpoints</span></article></div></header>
+<section class="wrap sec reveal" id="problem"><div class="tag">The problem</div><h2 class="h2">Most fintech stops at the ledger</h2><div class="grid2"><article class="card"><h3>What breaks trust</h3><ul class="list"><li>Fraud engines are rule bundles: opaque, brittle, uncalibrated and easy to game.</li><li>Credit is either a black-box score or a spreadsheet with no reason codes.</li><li>Cash-flow views are historical and say nothing about what is coming.</li><li>LLM chat over financial data is fluent and wrong, because the model computes numbers instead of reading them.</li></ul></article><article class="card"><h3>The contract</h3><p>The backend calculates. ML predicts. AI explains. Humans decide. Every prediction carries a calibrated score, contributors, limitations and provenance. Every model has a deterministic fallback. No model writes a balance, changes a status, approves a loan or closes a case.</p></article></div></section>
+<section class="wrap sec reveal"><div class="tag">What an analyst sees</div><h2 class="h2">A score, its reasons and its provenance</h2><div class="cs-ui" style="--tint:#2fd3a0"><div class="ui" data-ui role="img" aria-label="FinSight transaction review: calibrated fraud probability with its top contributors and a cash-flow forecast band">
+                <div class="ui-bar"><b>Transaction review</b><span>M1 fraud · shadow</span></div>
+                <div class="ui-grid">
+                  <div class="ui-card">
+                    <div class="ui-row"><span>Calibrated probability</span><span class="ui-tag" style="--c:#ff7a59">High band</span></div>
+                    <div class="ui-big">0.82</div>
+                    <div class="ui-meter"><i style="--v:82%"></i></div>
+                    <ul class="ui-list">
+                      <li><span>Amount vs 90-day median</span><span>×6.4</span></li>
+                      <li><span>New device fingerprint</span><span>+0.21</span></li>
+                      <li><span>Velocity, 10 min window</span><span>5 tx</span></li>
+                    </ul>
+                  </div>
+                  <div class="ui-card hide-sm">
+                    <div class="ui-row"><span>Credit decision</span><span class="ui-tag" style="--c:#f5c451">Refer</span></div>
+                    <div class="ui-big">PD 7.4%</div>
+                    <ul class="ui-list">
+                      <li><span>Debt-to-income</span><span>−38</span></li>
+                      <li><span>Months at employer</span><span>−21</span></li>
+                      <li><span>Utilisation trend</span><span>−12</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="ui-card">
+                  <div class="ui-row"><span>Balance forecast · P10 / P50 / P90</span><span>6 months</span></div>
+                  <svg class="ui-chart" viewBox="0 0 600 120" aria-hidden="true">
+                    <path d="M0 62 C80 58 120 52 180 56 S300 70 360 64 S480 46 600 50 L600 92 C480 96 420 104 360 100 S240 88 180 86 S60 84 0 70 Z" fill="#2fd3a0" fill-opacity=".16"/>
+                    <path d="M0 66 C80 66 120 66 180 70 S300 84 360 82 S480 72 600 72" fill="none" stroke="#2fd3a0" stroke-width="2.5"/>
+                    <path d="M0 104 H600" stroke="#ff7a59" stroke-width="1.5" stroke-dasharray="4 6"/>
+                  </svg>
+                </div>
+                <p class="ui-foot">Interface sketch with sample data · every number cites modelVersion and featureSetVersion</p>
+              </div></div></section>
+<section class="wrap sec reveal" id="models"><div class="tag">Six predictive models</div><h2 class="h2">Each answers one question</h2><div class="cs-table-wrap"><table class="cs-table"><thead><tr><th scope="col">Model</th><th scope="col">Question</th><th scope="col">Method</th><th scope="col">Output</th></tr></thead><tbody><tr><td>M1 Fraud</td><td>Is this settled transaction fraudulent?</td><td>Gradient-boosted trees, isotonic calibration, cost-sensitive threshold</td><td>Calibrated probability, band, top contributors</td></tr><tr><td>M2 Anomaly</td><td>Is this unusual for this customer?</td><td>Three-view Isolation Forest ensemble with robust-z explanations</td><td>Percentile score, drivers, cold-start flag</td></tr><tr><td>M3 Credit</td><td>What is the 12-month default risk, and why?</td><td>WOE scorecard + logistic champion, LightGBM challenger, policy cut-off</td><td>PD, score, band, exact reason codes</td></tr><tr><td>M4 Forecast</td><td>What will income, expenses and balance do?</td><td>Seasonal-naive baseline, quantile LightGBM, conformal intervals</td><td>P10/P50/P90 path, low-balance events</td></tr><tr><td>M5 Categorisation</td><td>Which spending category is this?</td><td>TF-IDF + linear baseline, DistilBERT challenger, calibrated abstention</td><td>Category or “unknown”</td></tr><tr><td>M6 Segmentation</td><td>Which behavioural group is this client in?</td><td>Robust scaling, K-means/GMM, bootstrap stability</td><td>Segment, profile, disclaimer</td></tr></tbody></table></div></section>
+<section class="wrap sec reveal"><div class="tag">What I built</div><h2 class="h2">The parts that make the numbers hold</h2><div class="grid3"><article class="mini"><b>A feature platform</b><p>Point-in-time features, explicit forbidden lists, assert_no_leakage at build time, leakage tests in CI, and a parity test proving one-row scoring matches the batch path.</p></article><article class="mini"><b>Fraud, calibrated</b><p>XGBoost with native imbalance weights, isotonic calibration on validation and a cost threshold (FN=10, FP=1), checked over three stratified splits.</p></article><article class="mini"><b>Credit that explains itself</b><p>Additive WOE scorecard, so every decline has exact reason codes. The LightGBM challenger lost out of time, so the interpretable model stayed.</p></article><article class="mini"><b>Honest intervals</b><p>Quantile LightGBM with split-conformal widening and a conservative risk path for low-balance alerts. Recorded facts are labelled apart from assumptions.</p></article><article class="mini"><b>An LLM that reads, never computes</b><p>Four levels from explainer to what-if. Tool-only access, numeric fidelity checks, an evidence scope per answer, injection defence and a deterministic fallback.</p></article><article class="mini"><b>FinSight Business</b><p>Company workspace as a modular monolith: roles, departments, invoices, bills, payments, expenses with separation of duties, budgets, projects and audit events.</p></article></div></section>
+<section class="wrap sec reveal" id="results"><div class="tag">Results</div><h2 class="h2">Measured, not claimed</h2><div class="cs-table-wrap"><table class="cs-table"><thead><tr><th scope="col">Area</th><th scope="col">Result</th></tr></thead><tbody><tr><td>Fraud benchmark (ULB, 284,807 transactions)</td><td>PR-AUC 0.866 ± 0.034, ROC-AUC 0.980 ± 0.010</td></tr><tr><td>Fraud operating point</td><td>Precision 0.81, recall 0.82 at the cost-chosen threshold</td></tr><tr><td>Anomaly ensemble</td><td>Precision@50 0.92, ROC-AUC 0.969, family recall 9.7–64%</td></tr><tr><td>Credit scorecard</td><td>AUC 0.810, Gini 0.620, KS 0.483, ECE 0.018</td></tr><tr><td>Credit cut-off</td><td>Bad rate 3.7% vs 19.1% on the approved book</td></tr><tr><td>Forecast</td><td>27% WAPE improvement over seasonal-naive</td></tr><tr><td>Low-balance alert</td><td>80% recall, 3.7% false alerts</td></tr><tr><td>Enterprise module</td><td>15 tables, 47 endpoints, 213 tests (23 enterprise-specific)</td></tr></tbody></table></div></section>
+<section class="wrap sec reveal" id="lesson"><div class="tag">Case study inside the case study</div><h2 class="h2">The fraud model that stayed in shadow</h2><p class="cs-lead">The first fraud model beat the rule engine on every secondary metric: PR-AUC 0.197 vs 0.133, ROC-AUC 0.901, ECE 0.0025 vs 0.0766, cost 5,803 vs 6,408. But the programme had committed to +0.10 PR-AUC before looking at the test. It delivered +0.064, so it stayed in shadow.</p><p class="cs-lead">That forced an honest next iteration. The labels were the ceiling, not the model family; two fraud families were invisible at the top 1%; device and balance features were defective; and the consumed test needed a fresh protocol. The answer was a benchmark-first rewrite on real public data, with repeated splits, calibration, cost thresholds and bootstrap intervals. The model did not get bigger. The evaluation got better.</p></section>
+<section class="wrap sec reveal"><div class="tag">Principles and stack</div><h2 class="h2">What I would defend in a review</h2><div class="grid2"><article class="card"><h3>Principles</h3><ul class="list"><li>Split before fitting: temporal, vintage or grouped.</li><li>Test once; a consumed test is archived.</li><li>Calibration is a gate, not a plot.</li><li>Cost is a business input to the threshold.</li><li>Measure selection bias: 0.020 AUC, quantified.</li><li>Shadow before assist; fallback always; provenance in every response.</li></ul></article><article class="card"><h3>Stack</h3><ul class="list"><li>ML: Python 3.11, scikit-learn, XGBoost, LightGBM, pandas, statsmodels, FastAPI.</li><li>Backend: Java 25, Spring Boot 4, JPA, Flyway, PostgreSQL 17, Spring Security/JWT, OpenAPI.</li><li>LLM: OpenAI-compatible provider (Groq), tool-calling, prompt registry, numeric validation.</li><li>Ops: pytest, model registry, dataset manifests, sha256 artifact provenance, Docker-ready.</li></ul></article></div><p class="cs-note">The interface above is a sketch with sample data; the models, metrics and tests are from the project.</p></section>
+<div class="wrap"><a class="cs-next" href="project-aeris-case-study.html"><span><small>Next project</small><b>AERIS</b></span><i aria-hidden="true">→</i></a></div>
+</main>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer"><button class="lb-close" type="button" aria-label="Close">&times;</button><button class="lb-btn lb-prev" type="button" aria-label="Previous image">&#8249;</button><img alt=""/><button class="lb-btn lb-next" type="button" aria-label="Next image">&#8250;</button></div>
+<footer class="wrap">FinSight AI · case study by Chedy Korbi · <a href="index.html">Portfolio home</a></footer>
+</body>
+</html>
