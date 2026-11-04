@@ -1,0 +1,149 @@
+% Chedy Korbi, CV (français). Classic one-column layout that ATS parsers read in order.
+% Build: tectonic CV_ChedyKorbi_FR.tex, or pdfLaTeX / XeLaTeX on Overleaf.
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}\pdfgentounicode=1      % searchable, copyable text
+  \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+  \usepackage{microtype}\DisableLigatures{encoding=*,family=*}
+\else
+  \usepackage{fontspec}
+  \setmainfont{lmroman10}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic,
+    BoldItalicFont=*-bolditalic, SmallCapsFont=lmromancaps10-regular, Ligatures=NoCommon]
+\fi
+\usepackage[a4paper,top=1.3cm,bottom=1.3cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedright
+
+\titleformat{\section}{\scshape\large}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% \role{Title}{Dates}{Organisation}{Place}
+\newcommand{\role}[4]{%
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\par}
+% \project{Name}{tools}{right note}
+\newcommand{\project}[3]{%
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} \enspace\textit{\small #2} & \small #3 \\
+  \end{tabular*}\par}
+\newenvironment{points}{\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt,parsep=0pt]\small}{\end{itemize}\vspace{4pt}}
+% \proj{Name}{tools}
+\newcommand{\proj}[2]{\textbf{#1} $|$ \textit{\small #2}\par}
+\newcommand{\gap}{\vspace{4pt}}
+
+\hypersetup{pdftitle={Chedy Korbi - CV Ingénieur IA/ML},pdfauthor={Chedy Korbi},
+  pdfkeywords={Machine Learning, Deep Learning, LLM, RAG, Vision par ordinateur, PyTorch, MLOps}}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\scshape Chedy Korbi}\par\vspace{5pt}
+  Élève ingénieur IA/ML $|$ LLM, RAG, vision par ordinateur, deep learning\par\vspace{2pt}
+  \small Tunis $|$ +216 58 239 045 $|$
+  \href{mailto:chedykorbi2021@gmail.com}{chedykorbi2021@gmail.com} $|$
+  \href{https://www.linkedin.com/in/chedy-korbi-2463a9250/}{linkedin.com/in/chedy-korbi} $|$
+  \href{https://github.com/ChedyKorbi}{github.com/ChedyKorbi}
+\end{center}
+
+\section{Profil}
+\small Élève ingénieur en Big Data \& IA qui conçoit des systèmes de machine learning de bout en bout : pipelines de données,
+entraînement, évaluation rigoureuse et déploiement derrière des API. Pratique des LLM, du RAG, de la vision par ordinateur et
+du deep learning, sur un solide socle logiciel. Vise un poste en IA/ML, LLM ou vision.\normalsize
+
+\section{Expérience professionnelle}
+\role{Stagiaire ingénieur IA \& mobile}{juil. 2026 -- août 2026}{SPIRAW by Food4Future}{Tunis, Tunisie}
+\begin{points}
+  \item Étude : 23~040 photos de biomasse peuvent-elles remplacer le dosage de C-phycocyanine ? Splits par lot sans fuite
+  \item MobileNetV2 entraîné sous PyTorch : R\textsuperscript{2}~0,96 en test, 0,87 en leave-one-batch-out, devant CatBoost et XGBoost
+  \item Explicabilité SHAP et Grad-CAM, tests de robustesse optique et démo Flask pour un futur capteur optique
+  \item Refonte de l'assistant EERA : routage d'intention hybride (règles, correspondance floue, LLM en dernier recours) et
+        garde-fous qui n'inventent jamais de mesure ni de prix ; précision de routage d'environ 75\% à environ 100\%
+  \item Sécurisation de l'app Flutter : backend authentifié à la place du MQTT direct, boutique Stripe
+\end{points}
+\role{Stagiaire de fin d'études, IoT \& IA/ML}{janv. 2025 -- juin 2025}{Symatique Software}{Tunis, Tunisie}
+\begin{points}
+  \item Modèles scikit-learn calibrés par race et âge qui signalent les risques de santé à partir de capteurs portés
+  \item Flux ESP32 via MQTT vers les services d'inférence, 50+ utilisateurs simultanés, latence inférieure à la seconde
+  \item Alertes livrées dans une app Android, un portail vétérinaire Angular et un chatbot NLP Rasa
+\end{points}
+\role{Stagiaire développeur IA \& mobile}{juil. 2024 -- août 2024}{Sagemcom Software \& Technologies, R\&D}{Tunis, Tunisie}
+\begin{points}
+  \item Intégration d'un modèle EfficientNet embarqué (TensorFlow Lite) pour reconnaître les produits en temps réel
+  \item Identification de 30~s à moins de 5~s et erreurs de saisie manuelle réduites de 80\%
+\end{points}
+
+\section{Projets IA}
+\proj{\href{https://github.com/ChedyKorbi/GroundedDocs}{GroundedDocs}}{Python, FastAPI, Qdrant, LangChain, Groq, Docker, GitHub Actions}
+\begin{points}
+  \item API RAG sur documents d'entreprise qui cite chaque affirmation et refuse de répondre sans preuve
+  \item Fusion dense + BM25 (RRF) et reranking cross-encoder : Recall@3 de 88,9\% à 100\%
+  \item Vérification de chaque affirmation : 96,3\% de fidélité, 88,2\% de citations exactes sur 48 questions de référence
+  \item Authentification par clé, limitation de débit, suivi de latence et de coût, Docker, CI et 113 tests
+\end{points}
+\proj{CourtVision}{PyTorch, YOLO11, BoT-SORT, SmolVLM2, OpenCV, TensorRT, FastAPI}
+\begin{points}
+  \item Pipeline qui transforme une vidéo NBA en joueurs suivis avec équipe, numéro et position sur le terrain
+  \item YOLO11 fine-tuné (28~843 boîtes) ; suivi BoT-SORT + ré-ID : HOTA 0,602 contre 0,393 pour ByteTrack
+  \item Projection terrain via points clés et homographie RANSAC : erreur médiane 0,695~ft ; 398/420 équipes justes
+  \item Lecture des numéros de maillot en zero-shot par modèle vision-langage (SmolVLM2), précision 99\%
+\end{points}
+\proj{BurgerVision}{RF-DETR, YOLOv8, ONNX Runtime, OpenCV, FastAPI}
+\begin{points}
+  \item Caméra temps réel, hors ligne, qui vérifie chaque burger d'un client de restauration rapide face à sa recette
+  \item Comparaison RF-DETR, YOLOv8, D-FINE ; confirmation multi-images, filtre qualité, règles de recette
+  \item mAP50 sur cuisines client inédites porté de 0,45 à 0,77, et 0,889 sur la station d'origine
+  \item 26/28 verdicts justes sur vidéos de test (modèle du client : 21/28), zéro faux «~conforme~»
+\end{points}
+\proj{AERIS}{Python, PyTorch, Audio Spectrogram Transformer, Spring Boot, Next.js}
+\begin{points}
+  \item Prototype de recherche en IA clinique qui réunit radio thoracique, sons pulmonaires, notes et constantes
+  \item Modèle de risque cardiaque à 0,89 d'AUROC sur données verrouillées ; transformer audio en entraînement
+  \item Chaque sortie IA exige la validation d'un clinicien, et la sortie d'origine est conservée pour l'audit
+\end{points}
+\proj{FinSight AI}{scikit-learn, XGBoost, LightGBM, statsmodels, FastAPI, Spring Boot}
+\begin{points}
+  \item Responsable ML d'une plateforme fintech : six modèles calibrés (fraude, anomalies, crédit, prévision)
+  \item Fraude : XGBoost, calibration isotonique et seuil sensible au coût, PR-AUC 0,866 sur le benchmark ULB
+  \item Scorecard crédit avec motifs exacts à 0,81 d'AUC ; prévisions de trésorerie 27\% meilleures (WAPE)
+\end{points}
+\proj{\href{https://github.com/ChedyKorbi/RACEDECK_F1_AI}{RaceDeck F1 AI}}{Python, FastF1, scikit-learn, MLflow, FastAPI, Docker}
+\begin{points}
+  \item Plateforme MLOps : briefings F1 d'avant-course (rythme, simulation, stratégie pneus) à partir des tours
+  \item Modèle de rythme corrigé du carburant et de la piste : erreur 1,33~s contre 11,31~s, validé sur 11 Grands Prix
+  \item Simulateur Monte-Carlo de 4~000 courses suivi dans MLflow ; un modèle n'est livré que s'il bat sa baseline
+\end{points}
+
+\section{Formation}
+\role{Cycle ingénieur, Big Data \& Intelligence Artificielle}{sept. 2025 -- en cours}{Polytech International}{Tunis, Tunisie}
+\gap
+\role{Licence, Systèmes embarqués \& développement mobile}{2022 -- 2025}{ISET Charguia, moyenne 16,78/20}{Tunis, Tunisie}
+
+\section{Compétences techniques}
+\small
+\textbf{Deep learning \& vision :} PyTorch, TensorFlow, YOLO, OpenCV, ONNX Runtime, TensorRT, Grad-CAM\par\vspace{2pt}
+\textbf{Machine learning :} scikit-learn, XGBoost, LightGBM, CatBoost, statsmodels, SHAP, séries temporelles, NLP\par\vspace{2pt}
+\textbf{LLM \& RAG :} LangChain, LangGraph, Qdrant, FAISS, Groq, prompt engineering, évaluation de LLM\par\vspace{2pt}
+\textbf{MLOps \& données :} Python, SQL, pandas, NumPy, FastAPI, Docker, MLflow, GitHub Actions, pytest\par\vspace{2pt}
+\textbf{Logiciel :} Java, TypeScript, C/C++, Spring Boot, Django, Next.js, Angular, Flutter, Android, ESP32, MQTT\par
+\normalsize
+
+\section{Certifications}
+\small
+\textbf{Samsung Innovation Campus, IA :} projet final multimodal (EfficientNetB3, BERT, LLM), 95,5\%, 4\textsuperscript{e} place\par\vspace{2pt}
+\textbf{AWS AI Practitioner Challenge} (Udacity) : LLM, RAG et IA agentique\par\vspace{2pt}
+\textbf{IT Specialist, Big Data} (Certiport)\par
+\normalsize
+
+\section{Langues}
+\small Arabe (langue maternelle), français (professionnel), anglais (professionnel)
+
+\end{document}

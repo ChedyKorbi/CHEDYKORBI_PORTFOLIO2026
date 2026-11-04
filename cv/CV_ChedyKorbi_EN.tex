@@ -1,0 +1,149 @@
+% Chedy Korbi, CV (English). Classic one-column layout that ATS parsers read in order.
+% Build: tectonic CV_ChedyKorbi_EN.tex, or pdfLaTeX / XeLaTeX on Overleaf.
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}\pdfgentounicode=1      % searchable, copyable text
+  \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+  \usepackage{microtype}\DisableLigatures{encoding=*,family=*}
+\else
+  \usepackage{fontspec}
+  \setmainfont{lmroman10}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic,
+    BoldItalicFont=*-bolditalic, SmallCapsFont=lmromancaps10-regular, Ligatures=NoCommon]
+\fi
+\usepackage[a4paper,top=1.3cm,bottom=1.3cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedright
+
+\titleformat{\section}{\scshape\large}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% \role{Title}{Dates}{Organisation}{Place}
+\newcommand{\role}[4]{%
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\par}
+% \project{Name}{tools}{right note}
+\newcommand{\project}[3]{%
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} \enspace\textit{\small #2} & \small #3 \\
+  \end{tabular*}\par}
+\newenvironment{points}{\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt,parsep=0pt]\small}{\end{itemize}\vspace{4pt}}
+% \proj{Name, what it is}{tools}
+\newcommand{\proj}[2]{\textbf{#1} $|$ \textit{\small #2}\par}
+\newcommand{\gap}{\vspace{4pt}}
+
+\hypersetup{pdftitle={Chedy Korbi - AI/ML Engineering CV},pdfauthor={Chedy Korbi},
+  pdfkeywords={Machine Learning, Deep Learning, LLM, RAG, Computer Vision, PyTorch, MLOps}}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\scshape Chedy Korbi}\par\vspace{5pt}
+  AI/ML Engineering Student $|$ LLMs, RAG, Computer Vision, Deep Learning\par\vspace{2pt}
+  \small Tunis $|$ +216 58 239 045 $|$
+  \href{mailto:chedykorbi2021@gmail.com}{chedykorbi2021@gmail.com} $|$
+  \href{https://www.linkedin.com/in/chedy-korbi-2463a9250/}{linkedin.com/in/chedy-korbi} $|$
+  \href{https://github.com/ChedyKorbi}{github.com/ChedyKorbi}
+\end{center}
+
+\section{Profile}
+\small AI/ML engineering student (Big Data \& AI) building machine learning systems end to end: data pipelines, model training,
+honest evaluation and deployment behind APIs. Hands-on with LLMs, RAG, computer vision and deep learning, backed by strong
+software engineering. Seeking AI/ML, LLM or computer-vision roles.\normalsize
+
+\section{Experience}
+\role{AI \& Mobile Engineering Intern}{Jul 2026 -- Aug 2026}{SPIRAW by Food4Future}{Tunis, Tunisia}
+\begin{points}
+  \item Studied whether 23,040 biomass photos can replace lab assays for C-phycocyanin, using leak-free batch splits
+  \item Trained MobileNetV2 in PyTorch: R\textsuperscript{2}~0.96 on test, 0.87 leave-one-batch-out, beating CatBoost and XGBoost
+  \item Added SHAP and Grad-CAM explainability, optical stress tests and a Flask demo for a future optical sensor
+  \item Rebuilt the EERA assistant with hybrid intent routing (rules, fuzzy matching, LLM fallback) and guardrails that never
+        invent sensor or price data, raising routing accuracy from about 75\% to about 100\%
+  \item Hardened the Flutter app: authenticated backend in place of direct MQTT, plus a Stripe shop
+\end{points}
+\role{Final-Year Intern, IoT \& AI/ML}{Jan 2025 -- Jun 2025}{Symatique Software}{Tunis, Tunisia}
+\begin{points}
+  \item Built breed- and age-calibrated scikit-learn models that flag pet health risks from wearable sensor data
+  \item Streamed ESP32 telemetry over MQTT into inference services for 50+ concurrent users at sub-second latency
+  \item Delivered model alerts through an Android app, an Angular vet portal and a Rasa NLP chatbot
+\end{points}
+\role{AI \& Mobile Developer Intern}{Jul 2024 -- Aug 2024}{Sagemcom Software \& Technologies, R\&D}{Tunis, Tunisia}
+\begin{points}
+  \item Integrated an on-device EfficientNet model (TensorFlow Lite) into a mobile app to recognise products in real time
+  \item Cut product identification from 30 s to under 5 s and reduced manual input errors by 80\%
+\end{points}
+
+\section{AI Projects}
+\proj{\href{https://github.com/ChedyKorbi/GroundedDocs}{GroundedDocs}}{Python, FastAPI, Qdrant, LangChain, Groq, Docker, GitHub Actions}
+\begin{points}
+  \item Built a RAG API over enterprise documents that cites every claim and refuses when evidence is missing
+  \item Fused dense and BM25 retrieval with RRF and cross-encoder reranking: Recall@3 from 88.9\% to 100\%
+  \item Verified each claim against its source: 96.3\% faithfulness, 88.2\% citation accuracy on 48 golden questions
+  \item Shipped with API-key auth, rate limiting, latency and cost tracking, Docker deployment, CI and 113 tests
+\end{points}
+\proj{CourtVision}{PyTorch, YOLO11, BoT-SORT, SmolVLM2, OpenCV, TensorRT, FastAPI}
+\begin{points}
+  \item Building a pipeline that turns NBA broadcast video into tracked players with team, number and court position
+  \item Fine-tuned YOLO11 on 28,843 player boxes; BoT-SORT + re-ID tracking: HOTA 0.602 vs 0.393 for ByteTrack
+  \item Mapped players to the court via keypoints and RANSAC homography: 0.695~ft median error, 398/420 teams right
+  \item Read jersey numbers zero-shot with a vision-language model (SmolVLM2) at 99\% precision
+\end{points}
+\proj{BurgerVision}{RF-DETR, YOLOv8, ONNX Runtime, OpenCV, FastAPI}
+\begin{points}
+  \item Built an offline, real-time camera system for a fast-food client that checks each burger against its recipe
+  \item Compared RF-DETR, YOLOv8 and D-FINE; added multi-frame confirmation, a quality gate and recipe rules
+  \item Raised mAP50 on unseen client kitchens from 0.45 to 0.77, and reached 0.889 on the home station
+  \item Scored 26/28 correct verdicts on held-out videos (client's own model: 21/28), with zero false approvals
+\end{points}
+\proj{AERIS}{Python, PyTorch, Audio Spectrogram Transformer, Spring Boot, Next.js}
+\begin{points}
+  \item Designing a clinical AI prototype that joins chest X-ray, lung sounds, notes and vitals in one patient record
+  \item Trained a heart-disease risk model at 0.89 AUROC on locked data; training an audio transformer on lung sounds
+  \item Every AI output requires clinician approval, and the original output is kept in an audit trail
+\end{points}
+\proj{FinSight AI}{scikit-learn, XGBoost, LightGBM, statsmodels, FastAPI, Spring Boot}
+\begin{points}
+  \item Led ML on a fintech platform: six calibrated models for fraud, anomalies, credit, forecasting and segmentation
+  \item Fraud: XGBoost with isotonic calibration and a cost-sensitive threshold, 0.866 PR-AUC on the ULB benchmark
+  \item Credit scorecard with exact reason codes at 0.81 AUC; cash-flow forecasts 27\% better (WAPE) than baseline
+\end{points}
+\proj{\href{https://github.com/ChedyKorbi/RACEDECK_F1_AI}{RaceDeck F1 AI}}{Python, FastF1, scikit-learn, MLflow, FastAPI, Docker}
+\begin{points}
+  \item Built an MLOps platform turning Formula 1 lap data into pre-race pace, simulation and tyre-strategy briefings
+  \item Pace model with fuel and track corrections: 1.33~s error vs 11.31~s baseline, leave-one-round-out on 11 rounds
+  \item 4,000-run Monte-Carlo race simulator tracked in MLflow; each model ships only if it beats its baseline
+\end{points}
+
+\section{Education}
+\role{Engineering Degree, Big Data \& Artificial Intelligence}{Sep 2025 -- Present}{Polytech International}{Tunis, Tunisia}
+\gap
+\role{Bachelor's Degree, Embedded Systems \& Mobile Development}{2022 -- 2025}{ISET Charguia, GPA 16.78/20}{Tunis, Tunisia}
+
+\section{Technical Skills}
+\small
+\textbf{Deep Learning \& CV:} PyTorch, TensorFlow, YOLO, OpenCV, ONNX Runtime, TensorRT, Grad-CAM\par\vspace{2pt}
+\textbf{Machine Learning:} scikit-learn, XGBoost, LightGBM, CatBoost, statsmodels, SHAP, time series, NLP\par\vspace{2pt}
+\textbf{LLM \& RAG:} LangChain, LangGraph, Qdrant, FAISS, Groq, prompt engineering, LLM evaluation\par\vspace{2pt}
+\textbf{MLOps \& Data:} Python, SQL, pandas, NumPy, FastAPI, Docker, MLflow, GitHub Actions, pytest\par\vspace{2pt}
+\textbf{Software:} Java, TypeScript, C/C++, Spring Boot, Django, Next.js, Angular, Flutter, Android, ESP32, MQTT\par
+\normalsize
+
+\section{Certifications}
+\small
+\textbf{Samsung Innovation Campus, AI Track:} multimodal capstone (EfficientNetB3, BERT, LLM), 95.5\%, 4th place\par\vspace{2pt}
+\textbf{AWS AI Practitioner Challenge} (Udacity): LLMs, RAG and agentic AI\par\vspace{2pt}
+\textbf{IT Specialist, Big Data} (Certiport)\par
+\normalsize
+
+\section{Languages}
+\small Arabic (native), French (professional), English (professional)
+
+\end{document}
