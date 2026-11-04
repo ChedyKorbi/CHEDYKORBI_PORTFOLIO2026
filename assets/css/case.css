@@ -27,6 +27,7 @@ body>nav,nav.cs-nav{position:fixed!important;top:14px;left:50%;transform:transla
 
 /* cover + hero */
 .case-cover{height:72vh!important;min-height:440px!important;opacity:.42!important;margin-bottom:-34vh!important;background-position:top center!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%)!important;mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%)!important;animation:cs-cover 1.8s var(--ease) both}
+.case-cover.case-cover--photo{background-position:center 42%!important;opacity:.62!important}
 @keyframes cs-cover{from{opacity:0;transform:scale(1.08)}to{opacity:.42;transform:none}}
 .wrap{max-width:1240px!important;padding:0 clamp(16px,3.2vw,40px)!important}
 .hero{padding-top:clamp(120px,16vh,180px)!important;padding-bottom:30px!important}
